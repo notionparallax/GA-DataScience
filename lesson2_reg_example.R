@@ -1,4 +1,5 @@
 ### EXAMPLE 1 - supervisor performance ###
+library(psych)
 
 # this dataset shows a set of six numeric survey responses (survey responses) and a dependent variable Y (perceived supervisor quality)
 # we want to predict Y from the X's
@@ -6,7 +7,7 @@ x <- read.table('http://www.ats.ucla.edu/stat/examples/chp/p054.txt', sep='\t', 
 
 x
 summary(x)
-
+describe(x)
 # this set of scatterplots gives us an idea of the pairwise relationships present in the dataset
 plot(x)
 

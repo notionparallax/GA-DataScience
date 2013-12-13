@@ -1,0 +1,2382 @@
+[
+  {
+    "data":[
+      {
+        "sessionId":4371524,
+        "name":"Row 500 m TT",
+        "date":"Feb 26, 2013",
+        "x":0.0,
+        "y":0.0,
+        "color":"rgba(0,128,0,0.315)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.315)"
+        }
+      },
+      {
+        "sessionId":5956712,
+        "name":"Run 400 m TT",
+        "date":"Sep 28, 2013",
+        "x":1.2,
+        "y":402.3,
+        "color":"rgba(0,128,0,0.745)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.745)"
+        }
+      },
+      {
+        "sessionId":4641872,
+        "name":"Row 500 m TT",
+        "date":"Apr 10, 2013",
+        "x":1.8,
+        "y":193.9,
+        "color":"rgba(0,128,0,0.402)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.402)"
+        }
+      },
+      {
+        "sessionId":5609109,
+        "name":"Grace",
+        "date":"Aug 22, 2013",
+        "x":3.7,
+        "y":115.1,
+        "color":"rgba(0,128,0,0.671)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.671)"
+        }
+      },
+      {
+        "sessionId":5695946,
+        "name":"5 RFT: Deadlifts, Hang Cleans and Push Press",
+        "date":"Sep 03, 2013",
+        "x":4.4,
+        "y":92.7,
+        "color":"rgba(0,128,0,0.695)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.695)"
+        }
+      },
+      {
+        "sessionId":4351982,
+        "name":"21-9-6: Deadlifts and Pull-ups",
+        "date":"Feb 23, 2013",
+        "x":4.7,
+        "y":56.0,
+        "color":"rgba(0,128,0,0.309)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.309)"
+        }
+      },
+      {
+        "sessionId":4007394,
+        "name":"3 RFT: Clean &amp; Jerks and Hanging Knee Raises",
+        "date":"Nov 12, 2012",
+        "x":4.8,
+        "y":50.4,
+        "color":"rgba(0,128,0,0.102)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.102)"
+        }
+      },
+      {
+        "sessionId":5301166,
+        "name":"Run 1 km TT",
+        "date":"Jul 11, 2013",
+        "x":4.8,
+        "y":84.7,
+        "color":"rgba(0,128,0,0.586)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.586)"
+        }
+      },
+      {
+        "sessionId":4204344,
+        "name":"FT: Pull-ups and Push-ups",
+        "date":"Feb 02, 2013",
+        "x":5.0,
+        "y":70.9,
+        "color":"rgba(0,128,0,0.267)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.267)"
+        }
+      },
+      {
+        "sessionId":6454835,
+        "name":"Grace",
+        "date":"Nov 30, 2013",
+        "x":5.0,
+        "y":114.3,
+        "color":"rgba(0,128,0,0.872)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.872)"
+        }
+      },
+      {
+        "sessionId":6329316,
+        "name":"Fran",
+        "date":"Nov 16, 2013",
+        "x":5.2,
+        "y":134.3,
+        "color":"rgba(0,128,0,0.844)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.844)"
+        }
+      },
+      {
+        "sessionId":4420905,
+        "name":"FT: Kettlebell Swings, 200 m and Push-up (hand release)s",
+        "date":"Mar 05, 2013",
+        "x":5.2,
+        "y":146.5,
+        "color":"rgba(0,128,0,0.329)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.329)"
+        }
+      },
+      {
+        "sessionId":4047528,
+        "name":"21-15-9: Power Cleans and Push-up (hand release)s",
+        "date":"Jan 11, 2013",
+        "x":5.3,
+        "y":115.0,
+        "color":"rgba(0,128,0,0.223)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.223)"
+        }
+      },
+      {
+        "sessionId":6192622,
+        "name":"10-9-8-7-6-5-4-3-2-1: Deadlifts and Barbell Push Ups",
+        "date":"Nov 01, 2013",
+        "x":5.5,
+        "y":23.1,
+        "color":"rgba(0,128,0,0.814)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.814)"
+        }
+      },
+      {
+        "sessionId":4014899,
+        "name":"20-15-10: Thrusters and Kettlebell Swings",
+        "date":"Jan 07, 2013",
+        "x":5.7,
+        "y":52.8,
+        "color":"rgba(0,128,0,0.215)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.215)"
+        }
+      },
+      {
+        "sessionId":6192617,
+        "name":"10-9-8-7-6-5-4-3-2-1: Pull-ups and Kettlebell Swings",
+        "date":"Nov 01, 2013",
+        "x":5.8,
+        "y":122.6,
+        "color":"rgba(0,128,0,0.814)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.814)"
+        }
+      },
+      {
+        "sessionId":4058178,
+        "name":"Grace",
+        "date":"Jan 12, 2013",
+        "x":6.0,
+        "y":61.9,
+        "color":"rgba(0,128,0,0.225)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.225)"
+        }
+      },
+      {
+        "sessionId":4420906,
+        "name":"FT: Rows and Farmers Carries",
+        "date":"Mar 05, 2013",
+        "x":6.0,
+        "y":54.2,
+        "color":"rgba(0,128,0,0.329)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.329)"
+        }
+      },
+      {
+        "sessionId":5602689,
+        "name":"12-9-6-3: Power Snatches and Burpees",
+        "date":"Aug 21, 2013",
+        "x":6.1,
+        "y":109.9,
+        "color":"rgba(0,128,0,0.669)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.669)"
+        }
+      },
+      {
+        "sessionId":4442323,
+        "name":"21-15-9: Kettlebell Swings, Floor Press and Front Squats",
+        "date":"Mar 07, 2013",
+        "x":6.1,
+        "y":102.1,
+        "color":"rgba(0,128,0,0.333)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.333)"
+        }
+      },
+      {
+        "sessionId":4007658,
+        "name":"FT: 300 m, Kettlebell Swings and Push-up (hand release)s",
+        "date":"Nov 23, 2012",
+        "x":6.2,
+        "y":143.2,
+        "color":"rgba(0,128,0,0.124)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.124)"
+        }
+      },
+      {
+        "sessionId":5380042,
+        "name":"3 RFT: Over Head Weighted Sit Ups, Kettlebell Swings and Dumbbell Single Arm Shoulder To Overheads",
+        "date":"Jul 23, 2013",
+        "x":6.3,
+        "y":52.4,
+        "color":"rgba(0,128,0,0.611)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.611)"
+        }
+      },
+      {
+        "sessionId":6161135,
+        "name":"30-20-10: Bent Over Barbell Rows, Air Squats and Push-up (hand release)s",
+        "date":"Oct 29, 2013",
+        "x":6.4,
+        "y":95.8,
+        "color":"rgba(0,128,0,0.808)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.808)"
+        }
+      },
+      {
+        "sessionId":4204355,
+        "name":"FT: Back Squats and Sit-up (standard)s",
+        "date":"Feb 02, 2013",
+        "x":6.5,
+        "y":53.7,
+        "color":"rgba(0,128,0,0.267)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.267)"
+        }
+      },
+      {
+        "sessionId":4204364,
+        "name":"FT: Kettlebell Swings and Thrusters",
+        "date":"Feb 02, 2013",
+        "x":6.5,
+        "y":70.6,
+        "color":"rgba(0,128,0,0.267)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.267)"
+        }
+      },
+      {
+        "sessionId":6174089,
+        "name":"21-15-9: Kettlebell Swings and Front Squats",
+        "date":"Oct 30, 2013",
+        "x":6.8,
+        "y":114.4,
+        "color":"rgba(0,128,0,0.81)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.81)"
+        }
+      },
+      {
+        "sessionId":5076001,
+        "name":"30-20-10: Kettlebell Swings and Front Squats",
+        "date":"Jun 11, 2013",
+        "x":6.8,
+        "y":122.2,
+        "color":"rgba(0,128,0,0.526)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.526)"
+        }
+      },
+      {
+        "sessionId":4019784,
+        "name":"AMRAP 7 mins: Chin-ups and Push-up (hand release)s",
+        "date":"Dec 07, 2012",
+        "x":7.0,
+        "y":56.3,
+        "color":"rgba(0,128,0,0.152)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.152)"
+        }
+      },
+      {
+        "sessionId":4007102,
+        "name":"AMRAP 7 mins: Power Cleans and Push Jerks",
+        "date":"Jan 05, 2013",
+        "x":7.0,
+        "y":47.1,
+        "color":"rgba(0,128,0,0.211)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.211)"
+        }
+      },
+      {
+        "sessionId":4007107,
+        "name":"AMRAP 7 mins: Power Snatches and Burpees",
+        "date":"Jan 05, 2013",
+        "x":7.0,
+        "y":73.1,
+        "color":"rgba(0,128,0,0.211)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.211)"
+        }
+      },
+      {
+        "sessionId":4105365,
+        "name":"AMReps 7 mins: Thruster",
+        "date":"Jan 19, 2013",
+        "x":7.0,
+        "y":46.4,
+        "color":"rgba(0,128,0,0.239)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.239)"
+        }
+      },
+      {
+        "sessionId":4105373,
+        "name":"AMReps 7 mins: Butterfly Pull Ups",
+        "date":"Jan 19, 2013",
+        "x":7.0,
+        "y":32.9,
+        "color":"rgba(0,128,0,0.239)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.239)"
+        }
+      },
+      {
+        "sessionId":4105383,
+        "name":"AMReps 7 mins: Squat Snatch",
+        "date":"Jan 19, 2013",
+        "x":7.0,
+        "y":36.1,
+        "color":"rgba(0,128,0,0.239)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.239)"
+        }
+      },
+      {
+        "sessionId":4397380,
+        "name":"AMRAP 7 mins: Pull-ups, Air Squats, Toes To Bars and 3 more",
+        "date":"Mar 01, 2013",
+        "x":7.0,
+        "y":38.4,
+        "color":"rgba(0,128,0,0.321)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.321)"
+        }
+      },
+      {
+        "sessionId":4447581,
+        "name":"AMRAP 7 mins: Ring Dips, Pistols and Ring Rows",
+        "date":"Mar 08, 2013",
+        "x":7.0,
+        "y":19.8,
+        "color":"rgba(0,128,0,0.335)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.335)"
+        }
+      },
+      {
+        "sessionId":4566976,
+        "name":"CrossFit Games Open 13.4",
+        "date":"Mar 28, 2013",
+        "x":7.0,
+        "y":90.0,
+        "color":"rgba(0,128,0,0.375)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.375)"
+        }
+      },
+      {
+        "sessionId":5161806,
+        "name":"AMReps 7 mins: Ground To Overhead",
+        "date":"Jun 22, 2013",
+        "x":7.0,
+        "y":66.6,
+        "color":"rgba(0,128,0,0.548)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.548)"
+        }
+      },
+      {
+        "sessionId":5161810,
+        "name":"AMRAP 7 mins: Kettlebell Swings and Chest-to-bar Pull-ups",
+        "date":"Jun 22, 2013",
+        "x":7.0,
+        "y":17.6,
+        "color":"rgba(0,128,0,0.548)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.548)"
+        }
+      },
+      {
+        "sessionId":4016558,
+        "name":"FT: Thrusters and Pull Up (Jumping)s",
+        "date":"Nov 29, 2012",
+        "x":7.0,
+        "y":84.1,
+        "color":"rgba(0,128,0,0.136)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.136)"
+        }
+      },
+      {
+        "sessionId":4351996,
+        "name":"10-7-4: Power Snatches, Burpees and Shoulder-to-Overheads",
+        "date":"Feb 23, 2013",
+        "x":7.0,
+        "y":59.0,
+        "color":"rgba(0,128,0,0.309)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.309)"
+        }
+      },
+      {
+        "sessionId":4559577,
+        "name":"30-20-10: Bent Over Barbell Rows, Air Squats and Push-up (hand release)s",
+        "date":"Mar 27, 2013",
+        "x":7.1,
+        "y":82.0,
+        "color":"rgba(0,128,0,0.373)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.373)"
+        }
+      },
+      {
+        "sessionId":6138784,
+        "name":"21-15-9: Deadlifts and Box Jump (30 in.)s",
+        "date":"Oct 25, 2013",
+        "x":7.3,
+        "y":65.5,
+        "color":"rgba(0,128,0,0.799)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.799)"
+        }
+      },
+      {
+        "sessionId":4058166,
+        "name":"Fran",
+        "date":"Jan 12, 2013",
+        "x":7.5,
+        "y":82.6,
+        "color":"rgba(0,128,0,0.225)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.225)"
+        }
+      },
+      {
+        "sessionId":4154252,
+        "name":"Amanda",
+        "date":"Jan 26, 2013",
+        "x":7.5,
+        "y":42.9,
+        "color":"rgba(0,128,0,0.253)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.253)"
+        }
+      },
+      {
+        "sessionId":4105393,
+        "name":"Farmers Carries, Runs",
+        "date":"Jan 19, 2013",
+        "x":7.6,
+        "y":65.9,
+        "color":"rgba(0,128,0,0.239)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.239)"
+        }
+      },
+      {
+        "sessionId":5317928,
+        "name":"Chipper: Over Head Weighted Sit Ups, Split Snatches, Muscle Up (Bar)s and 400 m",
+        "date":"Jul 15, 2013",
+        "x":7.7,
+        "y":41.8,
+        "color":"rgba(0,128,0,0.594)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.594)"
+        }
+      },
+      {
+        "sessionId":5391497,
+        "name":"AMRAP 8 mins: Power Cleans and Push Jerks",
+        "date":"Jul 22, 2013",
+        "x":8.0,
+        "y":61.4,
+        "color":"rgba(0,128,0,0.609)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.609)"
+        }
+      },
+      {
+        "sessionId":5494618,
+        "name":"AMRAP 8 mins: Power Cleans and Push Jerks",
+        "date":"Aug 07, 2013",
+        "x":8.0,
+        "y":80.8,
+        "color":"rgba(0,128,0,0.641)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.641)"
+        }
+      },
+      {
+        "sessionId":6211267,
+        "name":"AMRAP 8 mins: Strict Pull-ups and Ring Dip (Strict)s",
+        "date":"Nov 04, 2013",
+        "x":8.0,
+        "y":20.6,
+        "color":"rgba(0,128,0,0.82)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.82)"
+        }
+      },
+      {
+        "sessionId":4409818,
+        "name":"10-7-4: Squat Snatches, Burpees and Shoulder-to-Overheads",
+        "date":"Mar 02, 2013",
+        "x":8.0,
+        "y":69.0,
+        "color":"rgba(0,128,0,0.323)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.323)"
+        }
+      },
+      {
+        "sessionId":6367068,
+        "name":"3 RFT: Kettlebell Snatches and Burpees",
+        "date":"Nov 20, 2013",
+        "x":8.0,
+        "y":128.1,
+        "color":"rgba(0,128,0,0.852)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.852)"
+        }
+      },
+      {
+        "sessionId":4646180,
+        "name":"3 RFT: Deadlifts, Push-ups and Snatches",
+        "date":"Apr 11, 2013",
+        "x":8.2,
+        "y":76.0,
+        "color":"rgba(0,128,0,0.404)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.404)"
+        }
+      },
+      {
+        "sessionId":4019757,
+        "name":"Diane",
+        "date":"Dec 06, 2012",
+        "x":8.4,
+        "y":37.1,
+        "color":"rgba(0,128,0,0.15)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.15)"
+        }
+      },
+      {
+        "sessionId":6340575,
+        "name":"FT: Sumo Deadlift High-pulls, Thrusters and Pull-ups",
+        "date":"Nov 18, 2013",
+        "x":8.8,
+        "y":114.6,
+        "color":"rgba(0,128,0,0.848)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.848)"
+        }
+      },
+      {
+        "sessionId":4387335,
+        "name":"12-9-6: Overhead Squats",
+        "date":"Feb 27, 2013",
+        "x":9.0,
+        "y":37.9,
+        "color":"rgba(0,128,0,0.317)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.317)"
+        }
+      },
+      {
+        "sessionId":5317907,
+        "name":"AMRAP 9 mins: Push Press and Back Squats",
+        "date":"Jul 13, 2013",
+        "x":9.0,
+        "y":38.4,
+        "color":"rgba(0,128,0,0.59)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.59)"
+        }
+      },
+      {
+        "sessionId":6435543,
+        "name":"AMRAP 9 mins: Kettlebell Swings and Barbell Standing Curls",
+        "date":"Nov 27, 2013",
+        "x":9.0,
+        "y":55.8,
+        "color":"rgba(0,128,0,0.866)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.866)"
+        }
+      },
+      {
+        "sessionId":6435552,
+        "name":"AMRAP 9 mins: Sprints",
+        "date":"Nov 27, 2013",
+        "x":9.0,
+        "y":68.6,
+        "color":"rgba(0,128,0,0.866)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.866)"
+        }
+      },
+      {
+        "sessionId":4154262,
+        "name":"12-9-6: Chest-to-bar Pull-ups, Deadlifts and Weighted Push Ups",
+        "date":"Jan 26, 2013",
+        "x":9.0,
+        "y":39.7,
+        "color":"rgba(0,128,0,0.253)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.253)"
+        }
+      },
+      {
+        "sessionId":6109773,
+        "name":"12-9-6-3: Cleans and Burpees",
+        "date":"Oct 23, 2013",
+        "x":9.1,
+        "y":90.3,
+        "color":"rgba(0,128,0,0.795)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.795)"
+        }
+      },
+      {
+        "sessionId":5033481,
+        "name":"30-20-10: Power Cleans, Push-up (hand release)s and Air Squats",
+        "date":"Jun 05, 2013",
+        "x":9.1,
+        "y":131.0,
+        "color":"rgba(0,128,0,0.514)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.514)"
+        }
+      },
+      {
+        "sessionId":4199144,
+        "name":"21-15-9: Sit-up (standard)s, Push Press and Front Squats",
+        "date":"Feb 01, 2013",
+        "x":9.2,
+        "y":63.4,
+        "color":"rgba(0,128,0,0.265)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.265)"
+        }
+      },
+      {
+        "sessionId":5110546,
+        "name":"3 RFT: Deadlifts, Band Sprints and Chin-ups",
+        "date":"Jun 15, 2013",
+        "x":9.5,
+        "y":23.8,
+        "color":"rgba(0,128,0,0.534)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.534)"
+        }
+      },
+      {
+        "sessionId":5115775,
+        "name":"15-12-9: Power Cleans, Push-up (hand release)s and Lateral Burpee (Over Barbell)s",
+        "date":"Jun 17, 2013",
+        "x":9.6,
+        "y":71.4,
+        "color":"rgba(0,128,0,0.538)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.538)"
+        }
+      },
+      {
+        "sessionId":4409816,
+        "name":"FT: Handstand Walks, Chest-to-bar Pull-ups and Push Press",
+        "date":"Mar 02, 2013",
+        "x":9.8,
+        "y":36.3,
+        "color":"rgba(0,128,0,0.323)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.323)"
+        }
+      },
+      {
+        "sessionId":4975014,
+        "name":"4 RFT: Pull-ups, Double Kettlebell Push Press and Kettlebell Swings",
+        "date":"May 28, 2013",
+        "x":9.9,
+        "y":66.0,
+        "color":"rgba(0,128,0,0.498)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.498)"
+        }
+      },
+      {
+        "sessionId":5146891,
+        "name":"30-25-20: Push Press, Back Squats and Push-up (hand release)s",
+        "date":"Jun 19, 2013",
+        "x":9.9,
+        "y":93.3,
+        "color":"rgba(0,128,0,0.542)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.542)"
+        }
+      },
+      {
+        "sessionId":5125544,
+        "name":"21-15-9: Kettlebell Swings, Thrusters and Pull-ups",
+        "date":"Jun 18, 2013",
+        "x":10.0,
+        "y":98.3,
+        "color":"rgba(0,128,0,0.54)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.54)"
+        }
+      },
+      {
+        "sessionId":4019796,
+        "name":"AMRAP 10 mins: 300 m and Pull-ups",
+        "date":"Dec 07, 2012",
+        "x":10.0,
+        "y":51.1,
+        "color":"rgba(0,128,0,0.152)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.152)"
+        }
+      },
+      {
+        "sessionId":4491901,
+        "name":"CrossFit Games Open 13.2",
+        "date":"Mar 16, 2013",
+        "x":10.0,
+        "y":92.8,
+        "color":"rgba(0,128,0,0.351)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.351)"
+        }
+      },
+      {
+        "sessionId":6380974,
+        "name":"AMRAP 10 mins: Hang Power Cleans and Chin-up (chest-to-bar)s",
+        "date":"Nov 21, 2013",
+        "x":10.0,
+        "y":32.8,
+        "color":"rgba(0,128,0,0.854)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.854)"
+        }
+      },
+      {
+        "sessionId":6399051,
+        "name":"AMRAP 10 mins: Double Unders and Power Snatches",
+        "date":"Nov 23, 2013",
+        "x":10.0,
+        "y":65.7,
+        "color":"rgba(0,128,0,0.858)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.858)"
+        }
+      },
+      {
+        "sessionId":5301021,
+        "name":"FT: Ground To Overheads; Front Squats and Push-up (clapping)s; Front...",
+        "date":"Jul 08, 2013",
+        "x":10.0,
+        "y":85.1,
+        "color":"rgba(0,128,0,0.58)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.58)"
+        }
+      },
+      {
+        "sessionId":3990742,
+        "name":"21-15-9: Thrusters and Pull-ups",
+        "date":"Jan 03, 2013",
+        "x":10.3,
+        "y":60.4,
+        "color":"rgba(0,128,0,0.207)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.207)"
+        }
+      },
+      {
+        "sessionId":5602683,
+        "name":"3 RFT: Kettlebell Swings and Thrusters",
+        "date":"Aug 21, 2013",
+        "x":10.3,
+        "y":100.6,
+        "color":"rgba(0,128,0,0.669)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.669)"
+        }
+      },
+      {
+        "sessionId":4167954,
+        "name":"40-20: Kettlebell Swings and Front Squats",
+        "date":"Jan 29, 2013",
+        "x":10.3,
+        "y":72.1,
+        "color":"rgba(0,128,0,0.259)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.259)"
+        }
+      },
+      {
+        "sessionId":6086588,
+        "name":"10 RFT: Weighted Lunges and Push-up (hand release)s",
+        "date":"Oct 16, 2013",
+        "x":10.4,
+        "y":123.7,
+        "color":"rgba(0,128,0,0.781)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.781)"
+        }
+      },
+      {
+        "sessionId":4983483,
+        "name":"4 RFT: Push-up (hand release)s, AbMat Sit-ups and Weighted Lunges",
+        "date":"May 29, 2013",
+        "x":10.4,
+        "y":94.5,
+        "color":"rgba(0,128,0,0.5)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.5)"
+        }
+      },
+      {
+        "sessionId":5907651,
+        "name":"20-15-10: Power Cleans and Kettlebell Swings",
+        "date":"Sep 30, 2013",
+        "x":10.5,
+        "y":97.1,
+        "color":"rgba(0,128,0,0.749)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.749)"
+        }
+      },
+      {
+        "sessionId":6208801,
+        "name":"4 RFT: Deadlifts, Kettlebell Swings and Push-ups",
+        "date":"Nov 04, 2013",
+        "x":10.5,
+        "y":82.2,
+        "color":"rgba(0,128,0,0.82)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.82)"
+        }
+      },
+      {
+        "sessionId":5727808,
+        "name":"21-18-15-12-9: Sumo Deadlift High-pulls and Push Jerks",
+        "date":"Sep 06, 2013",
+        "x":10.7,
+        "y":77.3,
+        "color":"rgba(0,128,0,0.701)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.701)"
+        }
+      },
+      {
+        "sessionId":5390434,
+        "name":"4 RFT: Cleans and Lunges",
+        "date":"Jul 24, 2013",
+        "x":10.7,
+        "y":104.9,
+        "color":"rgba(0,128,0,0.613)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.613)"
+        }
+      },
+      {
+        "sessionId":5044307,
+        "name":"3 RFT: Kettlebell Swings, Weighted Lunges and Pull-ups",
+        "date":"Jun 06, 2013",
+        "x":11.1,
+        "y":102.7,
+        "color":"rgba(0,128,0,0.516)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.516)"
+        }
+      },
+      {
+        "sessionId":4371519,
+        "name":"4 RFT: Hang Power Snatches and Burpees",
+        "date":"Feb 26, 2013",
+        "x":11.2,
+        "y":98.2,
+        "color":"rgba(0,128,0,0.315)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.315)"
+        }
+      },
+      {
+        "sessionId":5557839,
+        "name":"5 RFT: Chest-to-bar Pull-ups and Lunges",
+        "date":"Aug 14, 2013",
+        "x":11.2,
+        "y":66.1,
+        "color":"rgba(0,128,0,0.655)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.655)"
+        }
+      },
+      {
+        "sessionId":5328349,
+        "name":"15-10-5: Thrusters, Chest-to-bar Pull-ups and Toes-to-bars",
+        "date":"Jul 16, 2013",
+        "x":11.3,
+        "y":50.6,
+        "color":"rgba(0,128,0,0.596)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.596)"
+        }
+      },
+      {
+        "sessionId":5256332,
+        "name":"5 RFT: Floor Press and Kettlebell Swings",
+        "date":"Jul 04, 2013",
+        "x":11.3,
+        "y":80.2,
+        "color":"rgba(0,128,0,0.572)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.572)"
+        }
+      },
+      {
+        "sessionId":4007843,
+        "name":"5 RFT: Squat Clean Thrusters and Pull Up (Jumping)s",
+        "date":"Nov 26, 2012",
+        "x":11.5,
+        "y":61.2,
+        "color":"rgba(0,128,0,0.13)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.13)"
+        }
+      },
+      {
+        "sessionId":6329332,
+        "name":"Helen",
+        "date":"Nov 16, 2013",
+        "x":11.5,
+        "y":110.5,
+        "color":"rgba(0,128,0,0.844)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.844)"
+        }
+      },
+      {
+        "sessionId":4525132,
+        "name":"21-15-9: Thrusters, Push-up (hand release)s and Chin-ups",
+        "date":"Mar 21, 2013",
+        "x":11.7,
+        "y":78.0,
+        "color":"rgba(0,128,0,0.361)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.361)"
+        }
+      },
+      {
+        "sessionId":5581156,
+        "name":"7 RFT: Push Jerks, Chest-to-bar Pull-ups and Burpees",
+        "date":"Aug 19, 2013",
+        "x":11.7,
+        "y":84.9,
+        "color":"rgba(0,128,0,0.665)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.665)"
+        }
+      },
+      {
+        "sessionId":4330939,
+        "name":"Helen",
+        "date":"Feb 20, 2013",
+        "x":12.0,
+        "y":104.7,
+        "color":"rgba(0,128,0,0.303)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.303)"
+        }
+      },
+      {
+        "sessionId":4019726,
+        "name":"AMRAP 12 mins: Chin-ups, Push-ups and Back Squats",
+        "date":"Dec 05, 2012",
+        "x":12.0,
+        "y":65.7,
+        "color":"rgba(0,128,0,0.148)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.148)"
+        }
+      },
+      {
+        "sessionId":4387363,
+        "name":"AMRAP 12 mins: Push-up (hand release)s and Kettlebell Swings",
+        "date":"Feb 27, 2013",
+        "x":12.0,
+        "y":69.6,
+        "color":"rgba(0,128,0,0.317)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.317)"
+        }
+      },
+      {
+        "sessionId":5348607,
+        "name":"AMRAP 12 mins: Push Jerks, Pull-ups and Burpee Jump And Touches",
+        "date":"Jul 18, 2013",
+        "x":12.0,
+        "y":35.8,
+        "color":"rgba(0,128,0,0.601)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.601)"
+        }
+      },
+      {
+        "sessionId":5851404,
+        "name":"AMRAP 12 mins w/ Buy-in: 1000 m, Shoulder-to-Overheads, Deadlifts and Box Jump (20 In.)s",
+        "date":"Sep 21, 2013",
+        "x":12.0,
+        "y":94.8,
+        "color":"rgba(0,128,0,0.731)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.731)"
+        }
+      },
+      {
+        "sessionId":6109793,
+        "name":"AMRAP 12 mins: Kettlebell Swings and Thrusters",
+        "date":"Oct 23, 2013",
+        "x":12.0,
+        "y":57.5,
+        "color":"rgba(0,128,0,0.795)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.795)"
+        }
+      },
+      {
+        "sessionId":6223642,
+        "name":"AMRAP 12 mins: Weighted Lunges and Push-up (hand release)s",
+        "date":"Nov 05, 2013",
+        "x":12.0,
+        "y":111.5,
+        "color":"rgba(0,128,0,0.822)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.822)"
+        }
+      },
+      {
+        "sessionId":4019702,
+        "name":"FT: Pull-ups and Kettlebell Swings",
+        "date":"Dec 04, 2012",
+        "x":12.0,
+        "y":46.7,
+        "color":"rgba(0,128,0,0.146)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.146)"
+        }
+      },
+      {
+        "sessionId":5557856,
+        "name":"Chipper: Pull-ups, Kettlebell Swings, Sit Up (Straight Leg)s and Burpees",
+        "date":"Aug 13, 2013",
+        "x":12.0,
+        "y":66.1,
+        "color":"rgba(0,128,0,0.653)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.653)"
+        }
+      },
+      {
+        "sessionId":6407270,
+        "name":"DT",
+        "date":"Nov 25, 2013",
+        "x":12.0,
+        "y":31.7,
+        "color":"rgba(0,128,0,0.862)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.862)"
+        }
+      },
+      {
+        "sessionId":5809647,
+        "name":"4 RFT: Power Cleans, Hollow Rocks and Chin-ups",
+        "date":"Sep 16, 2013",
+        "x":12.1,
+        "y":75.3,
+        "color":"rgba(0,128,0,0.721)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.721)"
+        }
+      },
+      {
+        "sessionId":4297422,
+        "name":"10-9-8-7-6-5-4-3-2-1: Chest-to-bar Pull-ups and Weighted Overhead Sit-ups",
+        "date":"Feb 15, 2013",
+        "x":12.1,
+        "y":30.1,
+        "color":"rgba(0,128,0,0.293)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.293)"
+        }
+      },
+      {
+        "sessionId":6189955,
+        "name":"10-9-8-7-6-5-4-3-2-1: Chest-to-bar Pull-ups and Burpees",
+        "date":"Oct 31, 2013",
+        "x":12.2,
+        "y":78.0,
+        "color":"rgba(0,128,0,0.812)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.812)"
+        }
+      },
+      {
+        "sessionId":5809653,
+        "name":"21-18-15-12-9: Weighted Lunges and Burpees",
+        "date":"Sep 17, 2013",
+        "x":12.3,
+        "y":103.9,
+        "color":"rgba(0,128,0,0.723)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.723)"
+        }
+      },
+      {
+        "sessionId":4186535,
+        "name":"21-15-9: Deadlifts and Chin-ups",
+        "date":"Jan 30, 2013",
+        "x":12.3,
+        "y":27.0,
+        "color":"rgba(0,128,0,0.261)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.261)"
+        }
+      },
+      {
+        "sessionId":4007132,
+        "name":"FT: 500 m, Back Squats and Chin-up (chest-to-bar)s",
+        "date":"Jan 05, 2013",
+        "x":12.5,
+        "y":75.1,
+        "color":"rgba(0,128,0,0.211)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.211)"
+        }
+      },
+      {
+        "sessionId":4098897,
+        "name":"21-15-9: Overhead Squats and Toes To Bars",
+        "date":"Jan 17, 2013",
+        "x":12.5,
+        "y":5.0,
+        "color":"rgba(0,128,0,0.235)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.235)"
+        }
+      },
+      {
+        "sessionId":5627587,
+        "name":"5 RFT: Power Cleans and Burpee Pull Ups",
+        "date":"Aug 23, 2013",
+        "x":12.5,
+        "y":96.1,
+        "color":"rgba(0,128,0,0.673)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.673)"
+        }
+      },
+      {
+        "sessionId":4351968,
+        "name":"10-9-8-7-6-5-4-3-2-1: Weighted Overhead Sit-ups, Kettlebell Swings and Push-up (hand release)s",
+        "date":"Feb 22, 2013",
+        "x":12.7,
+        "y":56.4,
+        "color":"rgba(0,128,0,0.307)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.307)"
+        }
+      },
+      {
+        "sessionId":4359948,
+        "name":"DT",
+        "date":"Feb 25, 2013",
+        "x":12.8,
+        "y":51.7,
+        "color":"rgba(0,128,0,0.313)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.313)"
+        }
+      },
+      {
+        "sessionId":6237827,
+        "name":"4 RFT: Push-up (clapping)s, Bent Over Barbell Rows, Dumbbell Snatch (one arm - L)s and 2 more",
+        "date":"Nov 06, 2013",
+        "x":12.9,
+        "y":42.7,
+        "color":"rgba(0,128,0,0.824)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.824)"
+        }
+      },
+      {
+        "sessionId":5261378,
+        "name":"AMReps 13 mins: Wall Balls, Rope Climbs, Kettlebell Swings and 7 more",
+        "date":"Jul 07, 2013",
+        "x":13.0,
+        "y":94.6,
+        "color":"rgba(0,128,0,0.578)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.578)"
+        }
+      },
+      {
+        "sessionId":4690583,
+        "name":"21-15-9: 400 m, Chest-to-bar Pull-ups and Floor Press",
+        "date":"Apr 17, 2013",
+        "x":13.1,
+        "y":45.8,
+        "color":"rgba(0,128,0,0.416)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.416)"
+        }
+      },
+      {
+        "sessionId":4149851,
+        "name":"FT: Kettlebell Swings, Weighted Overhead Sit-ups and 500 m",
+        "date":"Jan 25, 2013",
+        "x":13.1,
+        "y":83.7,
+        "color":"rgba(0,128,0,0.251)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.251)"
+        }
+      },
+      {
+        "sessionId":6322484,
+        "name":"4 RFT: Hang Squat Cleans and Push Jerks",
+        "date":"Nov 15, 2013",
+        "x":13.4,
+        "y":75.9,
+        "color":"rgba(0,128,0,0.842)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.842)"
+        }
+      },
+      {
+        "sessionId":4590263,
+        "name":"Chipper: Thrusters, Kettlebell Swings, Push-up (hand release)s and Sit-up (standard)s",
+        "date":"Apr 02, 2013",
+        "x":13.7,
+        "y":84.2,
+        "color":"rgba(0,128,0,0.385)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.385)"
+        }
+      },
+      {
+        "sessionId":5161811,
+        "name":"AMRAP 14 mins: 400 m, Thrusters and Burpees",
+        "date":"Jun 22, 2013",
+        "x":14.0,
+        "y":82.2,
+        "color":"rgba(0,128,0,0.548)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.548)"
+        }
+      },
+      {
+        "sessionId":4559588,
+        "name":"21-15-9: Power Cleans, Push Press and Burpees",
+        "date":"Mar 26, 2013",
+        "x":14.0,
+        "y":72.2,
+        "color":"rgba(0,128,0,0.371)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.371)"
+        }
+      },
+      {
+        "sessionId":4030293,
+        "name":"FT: Thrusters, Kettlebell Swings and 500 m",
+        "date":"Jan 09, 2013",
+        "x":14.3,
+        "y":71.4,
+        "color":"rgba(0,128,0,0.219)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.219)"
+        }
+      },
+      {
+        "sessionId":4039388,
+        "name":"21-15-9: Deadlifts, Push-up (hand release)s and Pull-ups",
+        "date":"Jan 10, 2013",
+        "x":14.3,
+        "y":37.1,
+        "color":"rgba(0,128,0,0.221)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.221)"
+        }
+      },
+      {
+        "sessionId":4079724,
+        "name":"FT: Pull-ups, Kettlebell Swings, Push-ups and 300 m",
+        "date":"Jan 16, 2013",
+        "x":14.3,
+        "y":86.7,
+        "color":"rgba(0,128,0,0.233)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.233)"
+        }
+      },
+      {
+        "sessionId":6535506,
+        "name":"5 RFT: Kettlebell Push Press (One Arm L)s, Kettlebell Push Press (One Arm R)s and 400 m",
+        "date":"Dec 10, 2013",
+        "x":14.3,
+        "y":69.7,
+        "color":"rgba(0,128,0,0.892)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.892)"
+        }
+      },
+      {
+        "sessionId":4455462,
+        "name":"40-20-10: Thrusters and Kettlebell Swings",
+        "date":"Mar 11, 2013",
+        "x":14.5,
+        "y":73.6,
+        "color":"rgba(0,128,0,0.341)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.341)"
+        }
+      },
+      {
+        "sessionId":4460532,
+        "name":"30-15-5: Deadlifts, Push-up (hand release)s and Pull-ups",
+        "date":"Mar 12, 2013",
+        "x":14.6,
+        "y":45.1,
+        "color":"rgba(0,128,0,0.343)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.343)"
+        }
+      },
+      {
+        "sessionId":4416724,
+        "name":"30-20-10: Thrusters and Pull-ups",
+        "date":"Mar 04, 2013",
+        "x":14.7,
+        "y":59.2,
+        "color":"rgba(0,128,0,0.327)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.327)"
+        }
+      },
+      {
+        "sessionId":5665482,
+        "name":"19-16-13-10-7: Power Cleans and Over Head Weighted Sit Ups",
+        "date":"Aug 28, 2013",
+        "x":14.7,
+        "y":59.7,
+        "color":"rgba(0,128,0,0.683)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.683)"
+        }
+      },
+      {
+        "sessionId":6138801,
+        "name":"4 RFT: 400 m, Clean And Jerk (Kettlebell)s and Push-up (hand release)s",
+        "date":"Oct 26, 2013",
+        "x":14.9,
+        "y":73.3,
+        "color":"rgba(0,128,0,0.802)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.802)"
+        }
+      },
+      {
+        "sessionId":5691016,
+        "name":"21-16-11-6: Power Cleans and Burpee Pull Ups",
+        "date":"Sep 02, 2013",
+        "x":14.9,
+        "y":106.2,
+        "color":"rgba(0,128,0,0.693)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.693)"
+        }
+      },
+      {
+        "sessionId":6148576,
+        "name":"5 RFT: 400 m and Floor Press",
+        "date":"Oct 28, 2013",
+        "x":14.9,
+        "y":67.2,
+        "color":"rgba(0,128,0,0.806)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.806)"
+        }
+      },
+      {
+        "sessionId":5240063,
+        "name":"6 RFT: Thrusters and Chin-ups",
+        "date":"Jul 03, 2013",
+        "x":14.9,
+        "y":67.6,
+        "color":"rgba(0,128,0,0.57)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.57)"
+        }
+      },
+      {
+        "sessionId":4270068,
+        "name":"Chipper: 800 m, Power Cleans, 600 m and 3 more",
+        "date":"Feb 12, 2013",
+        "x":15.0,
+        "y":98.5,
+        "color":"rgba(0,128,0,0.287)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.287)"
+        }
+      },
+      {
+        "sessionId":3977894,
+        "name":"AMRAP 15 mins: 500 m, Push-ups, Chin-ups and Knees To Elbows",
+        "date":"Dec 30, 2012",
+        "x":15.0,
+        "y":62.9,
+        "color":"rgba(0,128,0,0.198)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.198)"
+        }
+      },
+      {
+        "sessionId":4025876,
+        "name":"AMRAP 15 mins: Push-ups, Air Squats and Over Head Weighted Sit Ups",
+        "date":"Jan 08, 2013",
+        "x":15.0,
+        "y":73.1,
+        "color":"rgba(0,128,0,0.217)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.217)"
+        }
+      },
+      {
+        "sessionId":4047520,
+        "name":"AMRAP 15 mins: Power Snatches and Burpees",
+        "date":"Jan 11, 2013",
+        "x":15.0,
+        "y":69.8,
+        "color":"rgba(0,128,0,0.223)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.223)"
+        }
+      },
+      {
+        "sessionId":4070505,
+        "name":"AMRAP 15 mins: Kettlebell Swings, Push Press and 300 m",
+        "date":"Jan 15, 2013",
+        "x":15.0,
+        "y":48.2,
+        "color":"rgba(0,128,0,0.231)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.231)"
+        }
+      },
+      {
+        "sessionId":4119415,
+        "name":"AMRAP 15 mins: Kettlebell Swings, Push Press and 500 m",
+        "date":"Jan 22, 2013",
+        "x":15.0,
+        "y":41.1,
+        "color":"rgba(0,128,0,0.245)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.245)"
+        }
+      },
+      {
+        "sessionId":4211304,
+        "name":"The Chief",
+        "date":"Feb 03, 2013",
+        "x":15.0,
+        "y":106.5,
+        "color":"rgba(0,128,0,0.269)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.269)"
+        }
+      },
+      {
+        "sessionId":4330969,
+        "name":"AMRAP 15 mins: Kettlebell Swings, Box Jump Overs and Ring Dips",
+        "date":"Feb 18, 2013",
+        "x":15.0,
+        "y":30.5,
+        "color":"rgba(0,128,0,0.299)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.299)"
+        }
+      },
+      {
+        "sessionId":4470442,
+        "name":"AMRAP 15 mins: 200 m, Power Cleans and Front Squats",
+        "date":"Mar 13, 2013",
+        "x":15.0,
+        "y":62.2,
+        "color":"rgba(0,128,0,0.345)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.345)"
+        }
+      },
+      {
+        "sessionId":4621967,
+        "name":"The Chief",
+        "date":"Apr 08, 2013",
+        "x":15.0,
+        "y":124.7,
+        "color":"rgba(0,128,0,0.397)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.397)"
+        }
+      },
+      {
+        "sessionId":4921276,
+        "name":"The Chief",
+        "date":"May 20, 2013",
+        "x":15.0,
+        "y":127.9,
+        "color":"rgba(0,128,0,0.482)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.482)"
+        }
+      },
+      {
+        "sessionId":4937003,
+        "name":"5x AMRAP 3 mins: Deadlifts, Strict Pull-ups and Kettlebell Swings",
+        "date":"May 22, 2013",
+        "x":15.0,
+        "y":60.5,
+        "color":"rgba(0,128,0,0.486)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.486)"
+        }
+      },
+      {
+        "sessionId":5153930,
+        "name":"The Chief",
+        "date":"Jun 21, 2013",
+        "x":15.0,
+        "y":141.1,
+        "color":"rgba(0,128,0,0.546)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.546)"
+        }
+      },
+      {
+        "sessionId":5348587,
+        "name":"AMRAP 15 mins: Floor Press, Toes-to-bars and Pistols (Alternating Legs)s",
+        "date":"Jul 18, 2013",
+        "x":15.0,
+        "y":23.2,
+        "color":"rgba(0,128,0,0.601)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.601)"
+        }
+      },
+      {
+        "sessionId":5602697,
+        "name":"AMRAP 15 mins: Kettlebell Swings, Burpees and Ring Dips",
+        "date":"Aug 20, 2013",
+        "x":15.0,
+        "y":80.8,
+        "color":"rgba(0,128,0,0.667)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.667)"
+        }
+      },
+      {
+        "sessionId":5609147,
+        "name":"AMRAP 15 mins: Deadlifts and 200 m",
+        "date":"Aug 22, 2013",
+        "x":15.0,
+        "y":52.9,
+        "color":"rgba(0,128,0,0.671)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.671)"
+        }
+      },
+      {
+        "sessionId":5627692,
+        "name":"AMRAP 15 mins: 1 km, Push Press, Front Squats and Thrusters",
+        "date":"Aug 24, 2013",
+        "x":15.0,
+        "y":89.3,
+        "color":"rgba(0,128,0,0.675)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.675)"
+        }
+      },
+      {
+        "sessionId":5636615,
+        "name":"AMRAP 15 mins: Handstand Push-ups, Chest-to-bar Pull-ups and Alternating Kettlebell Snatches",
+        "date":"Aug 26, 2013",
+        "x":15.0,
+        "y":19.6,
+        "color":"rgba(0,128,0,0.679)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.679)"
+        }
+      },
+      {
+        "sessionId":5676424,
+        "name":"AMRAP 15 mins: Sumo Deadlift High-pulls and Push-up (hand release)s",
+        "date":"Aug 30, 2013",
+        "x":15.0,
+        "y":98.1,
+        "color":"rgba(0,128,0,0.687)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.687)"
+        }
+      },
+      {
+        "sessionId":5683389,
+        "name":"AMRAP 15 mins: Thrusters and Pull-ups",
+        "date":"Aug 31, 2013",
+        "x":15.0,
+        "y":139.9,
+        "color":"rgba(0,128,0,0.689)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.689)"
+        }
+      },
+      {
+        "sessionId":5765643,
+        "name":"AMRAP 15 mins: Push Press, Burpees and Back Squats",
+        "date":"Sep 11, 2013",
+        "x":15.0,
+        "y":84.9,
+        "color":"rgba(0,128,0,0.711)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.711)"
+        }
+      },
+      {
+        "sessionId":5765654,
+        "name":"The Chief",
+        "date":"Sep 11, 2013",
+        "x":15.0,
+        "y":129.4,
+        "color":"rgba(0,128,0,0.711)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.711)"
+        }
+      },
+      {
+        "sessionId":5956543,
+        "name":"AMRAP 15 mins: 400 m, Kettlebell Swings, Turkish Get-up, Left Arms and Turkish Get-up, Right Arms",
+        "date":"Oct 04, 2013",
+        "x":15.0,
+        "y":47.3,
+        "color":"rgba(0,128,0,0.757)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.757)"
+        }
+      },
+      {
+        "sessionId":5956941,
+        "name":"AMRAP 15 mins: 400 m, Pull-ups and Front Squats",
+        "date":"Oct 05, 2013",
+        "x":15.0,
+        "y":88.9,
+        "color":"rgba(0,128,0,0.759)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.759)"
+        }
+      },
+      {
+        "sessionId":6086604,
+        "name":"5x AMRAP 3 mins: Dumbbell Power Snatch (one arm - R)s, Dumbbell Power Snatch (one arm - L)s, Thrusters and Burpees",
+        "date":"Oct 15, 2013",
+        "x":15.0,
+        "y":60.1,
+        "color":"rgba(0,128,0,0.779)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.779)"
+        }
+      },
+      {
+        "sessionId":6086535,
+        "name":"AMRAP 15 mins: 400 m, Pull-ups and Front Squats",
+        "date":"Oct 18, 2013",
+        "x":15.0,
+        "y":89.4,
+        "color":"rgba(0,128,0,0.785)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.785)"
+        }
+      },
+      {
+        "sessionId":6086486,
+        "name":"AMRAP 15 mins: 400 m and Floor Press",
+        "date":"Oct 21, 2013",
+        "x":15.0,
+        "y":79.9,
+        "color":"rgba(0,128,0,0.791)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.791)"
+        }
+      },
+      {
+        "sessionId":6129063,
+        "name":"AMRAP 15 mins: Overhead Lunges, Kettlebell Swings and Push-up (hand release)s",
+        "date":"Oct 24, 2013",
+        "x":15.0,
+        "y":105.2,
+        "color":"rgba(0,128,0,0.797)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.797)"
+        }
+      },
+      {
+        "sessionId":6256087,
+        "name":"AMRAP 15 mins: 400 m, Thrusters and Muscle-ups",
+        "date":"Nov 07, 2013",
+        "x":15.0,
+        "y":67.8,
+        "color":"rgba(0,128,0,0.826)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.826)"
+        }
+      },
+      {
+        "sessionId":6470732,
+        "name":"AMRAP 15 mins: 400 m and Kettlebell Swings",
+        "date":"Dec 03, 2013",
+        "x":15.0,
+        "y":100.5,
+        "color":"rgba(0,128,0,0.878)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.878)"
+        }
+      },
+      {
+        "sessionId":6508617,
+        "name":"AMRAP 15 mins: Floor Press, Bent Over Barbell Rows and Push Press",
+        "date":"Dec 06, 2013",
+        "x":15.0,
+        "y":9.7,
+        "color":"rgba(0,128,0,0.884)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.884)"
+        }
+      },
+      {
+        "sessionId":4127698,
+        "name":"FT: Power Snatches, Push-up (hand release)s and 500 m",
+        "date":"Jan 23, 2013",
+        "x":15.0,
+        "y":64.9,
+        "color":"rgba(0,128,0,0.247)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.247)"
+        }
+      },
+      {
+        "sessionId":4240671,
+        "name":"Sean",
+        "date":"Feb 07, 2013",
+        "x":15.0,
+        "y":45.9,
+        "color":"rgba(0,128,0,0.277)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.277)"
+        }
+      },
+      {
+        "sessionId":4311101,
+        "name":"FT: Thrusters, Chin-ups, Thrusters, Chin-ups, Thrusters and Chin-ups...",
+        "date":"Feb 16, 2013",
+        "x":15.0,
+        "y":51.4,
+        "color":"rgba(0,128,0,0.295)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.295)"
+        }
+      },
+      {
+        "sessionId":4330948,
+        "name":"10-9-8-7-6-5-4-3-2-1: Floor Press, Kettlebell Swings and Pull-ups",
+        "date":"Feb 19, 2013",
+        "x":15.0,
+        "y":45.8,
+        "color":"rgba(0,128,0,0.301)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.301)"
+        }
+      },
+      {
+        "sessionId":4385399,
+        "name":"21-15-9: Squat Snatches and Chest-to-bar Pull-ups",
+        "date":"Feb 28, 2013",
+        "x":15.0,
+        "y":35.4,
+        "color":"rgba(0,128,0,0.319)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.319)"
+        }
+      },
+      {
+        "sessionId":5301096,
+        "name":"FT: Weighted Lunges; Muscle-ups and Snatches; Muscle-ups and Snatches...",
+        "date":"Jul 10, 2013",
+        "x":15.0,
+        "y":45.2,
+        "color":"rgba(0,128,0,0.584)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.584)"
+        }
+      },
+      {
+        "sessionId":5301154,
+        "name":"3 RFT: Handstand Push-ups, Power Cleans and Push Press",
+        "date":"Jul 11, 2013",
+        "x":15.0,
+        "y":40.6,
+        "color":"rgba(0,128,0,0.586)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.586)"
+        }
+      },
+      {
+        "sessionId":6189974,
+        "name":"10-9-8-7-6-5-4-3-2-1: Power Cleans and Turkish Get Ups",
+        "date":"Oct 31, 2013",
+        "x":15.0,
+        "y":46.8,
+        "color":"rgba(0,128,0,0.812)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.812)"
+        }
+      },
+      {
+        "sessionId":4114440,
+        "name":"30-20-10: Thrusters, Push-up (hand release)s and Weighted Overhead Sit-ups",
+        "date":"Jan 21, 2013",
+        "x":15.0,
+        "y":57.1,
+        "color":"rgba(0,128,0,0.243)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.243)"
+        }
+      },
+      {
+        "sessionId":5146871,
+        "name":"FT: Burpees; Barbell Lunges, Chest-to-bar Pull-ups and Power Cleans...",
+        "date":"Jun 20, 2013",
+        "x":15.1,
+        "y":68.0,
+        "color":"rgba(0,128,0,0.544)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.544)"
+        }
+      },
+      {
+        "sessionId":4447621,
+        "name":"20-15-10: Hang Power Cleans, Chin-ups and Push Press",
+        "date":"Mar 06, 2013",
+        "x":15.2,
+        "y":53.4,
+        "color":"rgba(0,128,0,0.331)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.331)"
+        }
+      },
+      {
+        "sessionId":5256363,
+        "name":"3 RFT: Weighted Sit-ups, Push Press and Lunges",
+        "date":"Jul 06, 2013",
+        "x":15.3,
+        "y":36.8,
+        "color":"rgba(0,128,0,0.576)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.576)"
+        }
+      },
+      {
+        "sessionId":4690576,
+        "name":"30-20-10: Kettlebell Swings and Thruster (Kettlebell)s",
+        "date":"Apr 16, 2013",
+        "x":15.5,
+        "y":34.9,
+        "color":"rgba(0,128,0,0.414)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.414)"
+        }
+      },
+      {
+        "sessionId":5081946,
+        "name":"3 RFT: 400 m, Toes-to-bars and Clean And Jerk (Kettlebell)s",
+        "date":"Jun 12, 2013",
+        "x":16.0,
+        "y":28.4,
+        "color":"rgba(0,128,0,0.528)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.528)"
+        }
+      },
+      {
+        "sessionId":5240032,
+        "name":"6 RFT: 400 m, Kettlebell Swings and Pull-ups",
+        "date":"Jul 02, 2013",
+        "x":16.0,
+        "y":130.8,
+        "color":"rgba(0,128,0,0.568)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.568)"
+        }
+      },
+      {
+        "sessionId":6422130,
+        "name":"5 RFT: 400 m, Kettlebell Swings and Pull-ups",
+        "date":"Nov 26, 2013",
+        "x":16.0,
+        "y":105.3,
+        "color":"rgba(0,128,0,0.864)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.864)"
+        }
+      },
+      {
+        "sessionId":4671688,
+        "name":"5 RFT: 400 m, Push Press and Pull-ups",
+        "date":"Apr 15, 2013",
+        "x":16.3,
+        "y":85.7,
+        "color":"rgba(0,128,0,0.412)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.412)"
+        }
+      },
+      {
+        "sessionId":4154267,
+        "name":"FT: 1 km, Front Squats and Farmers Carries",
+        "date":"Jan 26, 2013",
+        "x":16.3,
+        "y":31.0,
+        "color":"rgba(0,128,0,0.253)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.253)"
+        }
+      },
+      {
+        "sessionId":5441393,
+        "name":"5 RFT: 400 m and Floor Press",
+        "date":"Jul 31, 2013",
+        "x":16.7,
+        "y":59.9,
+        "color":"rgba(0,128,0,0.627)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.627)"
+        }
+      },
+      {
+        "sessionId":4599037,
+        "name":"30-20-10: Bent Over Barbell Rows, Push Press and Air Squats",
+        "date":"Apr 03, 2013",
+        "x":16.7,
+        "y":26.5,
+        "color":"rgba(0,128,0,0.387)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.387)"
+        }
+      },
+      {
+        "sessionId":3990809,
+        "name":"AMRAP 17 mins: Chin-ups, Kettlebell Swings and Box Squats",
+        "date":"Jan 02, 2013",
+        "x":17.0,
+        "y":17.5,
+        "color":"rgba(0,128,0,0.205)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.205)"
+        }
+      },
+      {
+        "sessionId":4340105,
+        "name":"AMRAP 20 mins: Deadlifts and Push-up (hand release)s",
+        "date":"Feb 21, 2013",
+        "x":17.0,
+        "y":54.9,
+        "color":"rgba(0,128,0,0.305)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.305)"
+        }
+      },
+      {
+        "sessionId":4447586,
+        "name":"CrossFit Games Open 13.1",
+        "date":"Mar 09, 2013",
+        "x":17.0,
+        "y":64.4,
+        "color":"rgba(0,128,0,0.337)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.337)"
+        }
+      },
+      {
+        "sessionId":4500782,
+        "name":"AMRAP 17 mins: Snatches, Pull-ups and Front Squats",
+        "date":"Mar 18, 2013",
+        "x":17.0,
+        "y":60.3,
+        "color":"rgba(0,128,0,0.355)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.355)"
+        }
+      },
+      {
+        "sessionId":5031501,
+        "name":"25-20-10: Pull-ups, Push Press and Burpees",
+        "date":"Jun 04, 2013",
+        "x":17.0,
+        "y":57.1,
+        "color":"rgba(0,128,0,0.512)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.512)"
+        }
+      },
+      {
+        "sessionId":4632758,
+        "name":"FT: Chin-ups, Power Snatches and 400 m",
+        "date":"Apr 09, 2013",
+        "x":17.1,
+        "y":87.3,
+        "color":"rgba(0,128,0,0.399)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.399)"
+        }
+      },
+      {
+        "sessionId":5168454,
+        "name":"4 RFT: Deadlifts, Power Cleans and Shoulder-to-Overheads",
+        "date":"Jun 24, 2013",
+        "x":17.3,
+        "y":70.7,
+        "color":"rgba(0,128,0,0.552)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.552)"
+        }
+      },
+      {
+        "sessionId":4007791,
+        "name":"AMRAP 18 mins: Box Jump (24 In.)s, Push Press and Hanging Knee Raises",
+        "date":"Nov 26, 2012",
+        "x":18.0,
+        "y":35.6,
+        "color":"rgba(0,128,0,0.13)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.13)"
+        }
+      },
+      {
+        "sessionId":5557819,
+        "name":"AMRAP 18 mins: 400 m, Kettlebell Swings and Pull-ups",
+        "date":"Aug 15, 2013",
+        "x":18.0,
+        "y":127.4,
+        "color":"rgba(0,128,0,0.657)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.657)"
+        }
+      },
+      {
+        "sessionId":5186901,
+        "name":"4 RFT: Push-ups, Power Cleans and Toes-to-bars",
+        "date":"Jun 26, 2013",
+        "x":18.0,
+        "y":63.8,
+        "color":"rgba(0,128,0,0.556)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.556)"
+        }
+      },
+      {
+        "sessionId":4002607,
+        "name":"5 RFT: 500 m, Kettlebell Swings and Pull-ups",
+        "date":"Jan 04, 2013",
+        "x":18.1,
+        "y":106.6,
+        "color":"rgba(0,128,0,0.209)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.209)"
+        }
+      },
+      {
+        "sessionId":4736245,
+        "name":"Nancy",
+        "date":"Apr 24, 2013",
+        "x":18.2,
+        "y":82.1,
+        "color":"rgba(0,128,0,0.43)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.43)"
+        }
+      },
+      {
+        "sessionId":4063926,
+        "name":"21-15-9: Power Snatches, Pull-ups and 500 m",
+        "date":"Jan 14, 2013",
+        "x":18.2,
+        "y":77.8,
+        "color":"rgba(0,128,0,0.229)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.229)"
+        }
+      },
+      {
+        "sessionId":4098910,
+        "name":"30-20-10: Kettlebell Swings, Push Press and Chin-ups",
+        "date":"Jan 18, 2013",
+        "x":18.7,
+        "y":46.7,
+        "color":"rgba(0,128,0,0.237)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.237)"
+        }
+      },
+      {
+        "sessionId":4251433,
+        "name":"Chipper: 1 km, Thrusters, Pull-ups and Handstand Push Ups",
+        "date":"Feb 08, 2013",
+        "x":18.8,
+        "y":57.3,
+        "color":"rgba(0,128,0,0.279)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.279)"
+        }
+      },
+      {
+        "sessionId":4140953,
+        "name":"FT: Pull-ups and Thrusters",
+        "date":"Jan 24, 2013",
+        "x":18.9,
+        "y":49.2,
+        "color":"rgba(0,128,0,0.249)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.249)"
+        }
+      },
+      {
+        "sessionId":5219780,
+        "name":"5 RFT: Toes-to-bars and Power Snatches",
+        "date":"Jul 01, 2013",
+        "x":19.5,
+        "y":41.2,
+        "color":"rgba(0,128,0,0.566)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.566)"
+        }
+      },
+      {
+        "sessionId":4216740,
+        "name":"FT: Thrusters and Runs",
+        "date":"Feb 05, 2013",
+        "x":19.6,
+        "y":31.5,
+        "color":"rgba(0,128,0,0.273)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.273)"
+        }
+      },
+      {
+        "sessionId":5092469,
+        "name":"4 RFT: Runs, Kettlebell Swings and Thrusters",
+        "date":"Jun 13, 2013",
+        "x":19.7,
+        "y":53.6,
+        "color":"rgba(0,128,0,0.53)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.53)"
+        }
+      },
+      {
+        "sessionId":4641868,
+        "name":"5 RFT: Kettlebell Swings, Weighted Overhead Sit-ups and Double Kettlebell Push Press",
+        "date":"Apr 10, 2013",
+        "x":19.8,
+        "y":27.8,
+        "color":"rgba(0,128,0,0.402)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.402)"
+        }
+      },
+      {
+        "sessionId":4007355,
+        "name":"AMRAP 20 mins: 200 m, Chin-ups, Kettlebell Swings and Push-up (clapping)s",
+        "date":"Nov 12, 2012",
+        "x":20.0,
+        "y":48.4,
+        "color":"rgba(0,128,0,0.102)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.102)"
+        }
+      },
+      {
+        "sessionId":4025882,
+        "name":"AMRAP 20 mins: Power Cleans, Front Squats, Pull-ups and 500 m",
+        "date":"Jan 08, 2013",
+        "x":20.0,
+        "y":33.1,
+        "color":"rgba(0,128,0,0.217)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.217)"
+        }
+      },
+      {
+        "sessionId":4479068,
+        "name":"AMRAP 20 mins: Shoulder-to-Overheads, Power Cleans, Chin-ups and 400 m",
+        "date":"Mar 14, 2013",
+        "x":20.0,
+        "y":62.7,
+        "color":"rgba(0,128,0,0.347)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.347)"
+        }
+      },
+      {
+        "sessionId":6096808,
+        "name":"AMRAP 20 mins: Ground To Overheads, Chin-up (chest-to-bar)s and 400 m",
+        "date":"Oct 22, 2013",
+        "x":20.0,
+        "y":48.1,
+        "color":"rgba(0,128,0,0.793)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.793)"
+        }
+      },
+      {
+        "sessionId":6531114,
+        "name":"AMRAP 20 mins: Sumo Deadlift High-pulls, Power Cleans and Thrusters",
+        "date":"Dec 09, 2013",
+        "x":20.0,
+        "y":27.6,
+        "color":"rgba(0,128,0,0.89)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.89)"
+        }
+      },
+      {
+        "sessionId":6464465,
+        "name":"Cindy",
+        "date":"Dec 02, 2013",
+        "x":20.0,
+        "y":99.8,
+        "color":"rgba(0,128,0,0.876)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.876)"
+        }
+      },
+      {
+        "sessionId":4007560,
+        "name":"5 RFT: Pull-ups, Push-ups, AbMat Sit-ups and Air Squats",
+        "date":"Nov 14, 2012",
+        "x":20.0,
+        "y":138.7,
+        "color":"rgba(0,128,0,0.106)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.106)"
+        }
+      },
+      {
+        "sessionId":4186555,
+        "name":"30-20-10: Power Cleans, Pull-ups and Push-ups",
+        "date":"Jan 31, 2013",
+        "x":20.0,
+        "y":72.6,
+        "color":"rgba(0,128,0,0.263)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.263)"
+        }
+      },
+      {
+        "sessionId":5646613,
+        "name":"Chipper: Burpees, Weighted Sit-ups, Burpees and 3 more",
+        "date":"Aug 27, 2013",
+        "x":20.0,
+        "y":64.4,
+        "color":"rgba(0,128,0,0.681)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.681)"
+        }
+      },
+      {
+        "sessionId":4007438,
+        "name":"4 RFT: 400 m, Front Squats and Pull Up (Jumping)s",
+        "date":"Nov 13, 2012",
+        "x":20.4,
+        "y":67.9,
+        "color":"rgba(0,128,0,0.104)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.104)"
+        }
+      },
+      {
+        "sessionId":6574508,
+        "name":"AMRAP 24 mins: Squat Cleans, Pull-ups and 800 m",
+        "date":"Dec 13, 2013",
+        "x":24.0,
+        "y":91.5,
+        "color":"rgba(0,128,0,0.898)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.898)"
+        }
+      },
+      {
+        "sessionId":4016587,
+        "name":"5 RFT: Overhead Walking Lunges and Burpees",
+        "date":"Dec 03, 2012",
+        "x":24.0,
+        "y":45.6,
+        "color":"rgba(0,128,0,0.144)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.144)"
+        }
+      },
+      {
+        "sessionId":4231063,
+        "name":"3 RFT: Pull-ups, Deadlifts and Push-ups",
+        "date":"Feb 06, 2013",
+        "x":25.0,
+        "y":67.5,
+        "color":"rgba(0,128,0,0.275)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.275)"
+        }
+      },
+      {
+        "sessionId":5571999,
+        "name":"Wood",
+        "date":"Aug 17, 2013",
+        "x":25.0,
+        "y":76.3,
+        "color":"rgba(0,128,0,0.661)",
+        "marker":{
+          "fillColor":"rgba(0,128,0,0.661)"
+        }
+      }
+    ]
+  }
+]
