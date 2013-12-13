@@ -7,7 +7,7 @@
 #data analysis with OS tools - Philipp k janert (overfitting diagram)
 # dtreg.com underfittign and overfitting examples
 
-install.packages(class, psych, ggplot2, GGally) #this might needs to be c()
+install.packages(c(class, psych, ggplot2, GGally)) #this needs needs to be c()'d into a vector
 
 library(class)
 library(psych)
