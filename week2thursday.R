@@ -7,4 +7,9 @@
 #data analysis with OS tools - Philipp k janert (overfitting diagram)
 # dtreg.com underfittign and overfitting examples
 
+install.packages(class, psych, ggplot2, GGally) #this might needs to be c()
 
+library(class)
+library(psych)
+library(ggplot2)
+library(GGally)
