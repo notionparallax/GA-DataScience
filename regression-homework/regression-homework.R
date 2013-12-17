@@ -42,5 +42,10 @@ plot(j$duration, j$power.w)
 abline(fit)
 
 ggplot(j, aes(x=j$duration, y=j$power.w)) +
-  geom_point(shape=1) +    # Use hollow circles
-  geom_smooth()            # Add a loess smoothed fit curve with confidence region
+          geom_point(shape=1)+      # Use hollow circles
+          geom_smooth(method=lm)   # Add linear regression line 
+
+ggplot(j, aes(x=j$duration, y=j$power.w)) +
+          geom_point(shape=1) +    # Use hollow circles
+          geom_smooth()            # Add a loess smoothed fit curve with confidence region
+
