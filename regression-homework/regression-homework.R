@@ -35,11 +35,12 @@ j$power.w <- sapply(j$power,  function(x){ x * fpsTOw })
 j$r.date <- sapply(j$date,  function(x){ as.Date(x, format="%b %d, %Y") })
 
 fit <- lm(j$power.w ~  j$duration)
+poly.fit <- lm(j$power.w ~ poly(j, degree = 3), data = j)
 #summary(fit)
 #plot(fit)
 
 plot(j$duration, j$power.w)
-abline(fit)
+abline(poly.fit)
 
 ggplot(j, aes(x=j$duration, y=j$power.w)) +
           geom_point(shape=1)+      # Use hollow circles
