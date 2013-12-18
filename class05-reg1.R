@@ -14,6 +14,8 @@ summary(lm(y ~ x)) # fit any good?
 summary(lm(y ~ x))$r.squared
 names(summary(lm(y ~ x))) # if your not sure how to get particular elements on their own
 summary(lm(y ~ x))$sigma
+plot(lm(y ~ x))
+
 
 # How about a curve
 x.squared <- x ^ 2
@@ -25,6 +27,7 @@ ggplot(data.frame(XSquared = x.squared, Y = y), aes(x = XSquared, y = Y)) +
 summary(lm(y ~ x.squared)) # fit any good?
 summary(lm(y ~ x.squared))$r.squared
 
+plot(lm(y ~ x.squared))
 
 # lets create some more data
 set.seed(1)
@@ -39,10 +42,12 @@ summary(lm(Y ~ X, data = df))
 # lets have a look at the graph
 ggplot(data.frame(X = x, Y = y), aes(x = X, y = Y)) +
   geom_point() +
-  geom_smooth(method = 'lm', se = FALSE)
+  geom_smooth(method = 'lm', se = T)
 
-df <- transform(df, 
-                  X2 = X ^ 2
+plot(lm(Y ~ X, data = df)) #these data look ok, but the problems come out obviously when you look at the plots of the LM
+
+df <- transform(df 
+                , X2 = X ^ 2
                 , X3 = x ^ 3)
 summary(df)
 summary(lm(Y ~ X + X2 + X3, data = df))
