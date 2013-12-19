@@ -1,15 +1,16 @@
 [
       {
-        "sessionId":4371524,
-        "name":"Row 500 m TT",
+        "sessionId":00000000,
+        "name":"single big clean",
         "date":"Feb 26, 2013",
-        "x":0.0,
-        "y":0.0,
+        "x":0.001,
+        "y":1700,
         "color":"rgba(0,128,0,0.315)",
         "marker":{
           "fillColor":"rgba(0,128,0,0.315)"
         }
       },
+      
       {
         "sessionId":5956712,
         "name":"Run 400 m TT",

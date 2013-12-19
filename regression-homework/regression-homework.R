@@ -30,23 +30,36 @@ j$color <- NULL
 #### data processing ####
 fpsTOw <- 1.355817948
 j$power.w <- sapply(j$power,  function(x){ x * fpsTOw })
+j$power.w.log <- sapply(j$power,  function(x){ log(x) })
+j$power.w.sqrt <- sapply(j$power,  function(x){ sqrt(x) })
 #convert date col strings into r dates
 #as.Date(j$date[1], format="%b %d, %Y")
 j$r.date <- sapply(j$date,  function(x){ as.Date(x, format="%b %d, %Y") })
 
 fit <- lm(j$power.w ~  j$duration)
-poly.fit <- lm(j$power.w ~ poly(j, degree = 3), data = j)
-#summary(fit)
-#plot(fit)
 
 plot(j$duration, j$power.w)
-abline(poly.fit)
+myLM <- lm(j$duration ~ poly(j$power.w, 4, raw=TRUE))
+points(j$duration, predict(myLM), type="l", col="red", lwd=2)
 
-ggplot(j, aes(x=j$duration, y=j$power.w)) +
+poly.fit <- lm(j$power.w ~ poly(j, degree = 3), data = j)
+#summary(fit)
+plot(fit)
+
+#This page was helpful
+#http://www.r-bloggers.com/polynomial-regression-techniques/
+
+plot(j$duration, j$power.w)
+abline(myLM)
+
+ggplot(j, aes(x=j$duration, y=j$power.w.log)) +
           geom_point(shape=1)+      # Use hollow circles
-          geom_smooth(method=lm)   # Add linear regression line 
-
-ggplot(j, aes(x=j$duration, y=j$power.w)) +
-          geom_point(shape=1) +    # Use hollow circles
-          geom_smooth()            # Add a loess smoothed fit curve with confidence region
+          geom_smooth(method=lm)+   # Add linear regression line 
+          stat_smooth(method="lm", 
+                      se=TRUE, 
+                      fill=NA,                      
+                      formula=y ~ poly(x, 3, raw=TRUE),
+                      colour="red",
+                      fullrange=TRUE #should the fit span the full range of the plot, or just the data
+                      )
 
