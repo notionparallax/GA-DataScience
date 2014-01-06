@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<title>Title</title>
+</head>
+
+<body>
+
+<p></p>
+
+<!--begin.rcode
+#if we don't have the package needed, install it
+#this is crying out for some refactoring
+library(tools)
+if("DBI" %in% rownames(installed.packages()) == FALSE) {install.packages("DBI")}
+library("DBI")
+if("RMySQL" %in% rownames(installed.packages()) == FALSE) {install.packages("RMySQL")}
+library("RMySQL")
+
+setwd("/home/ben/Documents/GA-DS/Prediction book analysis")
+
+dbPath <- "predictions_export.sql"
+end.rcode-->
+
+<p>You can also embed plots, for example:</p>
+
+<!--begin.rcode fig.width=7, fig.height=6
+plot(cars)
+end.rcode-->
+
+</body>
+</html>
