@@ -102,14 +102,15 @@ ggplot(df, aes(x = X, y = PredictedY)) +
   geom_line()
 
 
-x <- seq(0, 1, by = 0.01)
-x1 <- x
-y <- sin(2 * pi * x) + rnorm(length(x), 0, 0.1)
+x <- cbind(seq(0, 1, by = 0.01), seq(0, 1, by = 0.01))
+y <- sin(2 * pi * x[,1]) + rnorm(length(x[,1]), 0, 0.1)
+plot(x[,1],y)
+
 # using glmnet for regularisation
 library(glmnet)
 # glmnet neds a matrix for x
-glmnet(x, y)
-
+gldf <- glmnet(poly(x, degree=15), y)
+sort(gldf$dev.ratio)
 Call:  glmnet(x = x, y = y) 
 
 Df   %Dev   Lambda

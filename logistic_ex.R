@@ -16,6 +16,8 @@ xtabs(~admit + rank, data=adm)
 # have a look at mean gre, gpa
 library(doBy)
 summaryBy(gre + gpa ~ admit + rank , data = adm , FUN = c(mean , sd))
+summaryBy(gre + gpa ~ admit , data = adm , FUN = c(mean , sd))
+summaryBy(gre + gpa ~ rank , data = adm , FUN = c(mean , sd))
 
 
 # lets have a look at fitting a linear model What issues if any do you expect to find?
@@ -32,7 +34,8 @@ plot(lin.fit)
 # Now lets fit a logistic regression with binomialresiduals
 adm$rank <- factor(adm$rank) #make the rank variable a factor instead of a continuous variable
 
-logit.fit <- glm(admit ~ ., family='binomial', data=adm)
+logit.fit <- glm(admit ~ ., family='binomial', data=adm) 
+#family=binomial means that it's going to do a logistic regression
 summary(logit.fit)
 plot(logit.fit) #see anything useful?
 # deviance resids -> measure of model fit (like resids in linear model)
@@ -68,10 +71,12 @@ new.data$rank.prob <- predict(logit.fit.all.2, newdata=new.data, type='response'
 new.data
 
 # predict probs for new data (varying gre)
-new.data2 <- with(x, data.frame(gre=rep(seq(from=200, to=800, length.out=100), 4), gpa=mean(gpa), rank=factor(rep(1:4, each=100))))
+new.data2 <- with(adm, data.frame(gre=rep(seq(from=200, to=800, length.out=100), 4), gpa=mean(gpa), rank=factor(rep(1:4, each=100))))
 new.data2$pred <- predict(logit.fit.all.2, newdata=new.data2, type='response')
 ggplot(new.data2, aes(x=gre, y=pred)) + geom_line(aes(colour=rank), size=1)
 
+logit.fit.all.2
+names(logit.fit.all.2)
 logit.fit.all.2$fitted.values
 adm.pred <- data.frame(adm , logit.fit.all.2$fitted.values )
 head(adm.pred)

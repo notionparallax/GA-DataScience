@@ -3,10 +3,12 @@
 if("jsonlite" %in% rownames(installed.packages()) == FALSE) {install.packages("jsonlite")}
 if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")}
 if("splines" %in% rownames(installed.packages()) == FALSE) {install.packages("splines")}
+if("psych" %in% rownames(installed.packages()) == FALSE) {install.packages("psych")}
 
 library(ggplot2)
 library(jsonlite)
 library(splines)
+library(psych)
 
 setwd("/home/ben/Documents/GA-DS/regression-homework")
 
@@ -14,6 +16,10 @@ setwd("/home/ben/Documents/GA-DS/regression-homework")
 #this needs the json to be in the format [{...}] i.e. a list of objects
 # if it is in the more obvious format {'k':[{...}]} then it thinks you have one observation
 j <- fromJSON("workouts.json")
+
+summary(j)
+describe(j)
+#Error in if (inherits(X[[j]], "data.frame") && ncol(xj) > 1L) X[[j]] <- as.matrix(X[[j]]) : missing value where TRUE/FALSE needed
 
 # For some reason it puts all the markers into the first obs, 
 # it doesn't matter because marker isn't needed, but in future 
