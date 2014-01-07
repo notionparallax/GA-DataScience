@@ -1,40 +1,37 @@
 <html>
 
 <head>
-<title>Title</title>
+<title>K Means example | R</title>
 </head>
 
 <body>
-
-<p>This is an R HTML document. When you click the <b>Knit HTML</b> button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-
-<!--begin.rcode
+<p>K Means is a clustering method to </p>
+<p></p>
+<!--begin.rcode import some libraries
 library(stats)
 library(ggplot2)
 set.seed(1)
 end.rcode-->
 
-<!--begin.rcode
-# for our first example, let's create some synthetic easy-to-cluster data
+
+<p>For our first example, let's create some synthetic easy-to-cluster data. This generates 4 little clouds of points and joins them all into one data frame.</p>
+<!--begin.rcode make some example data
 d <- data.frame()
 d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label=as.factor(rep(1, each=20))))
 d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(2, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label=as.factor(rep(3, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(4, each=20))))
 end.rcode-->
-
-<!--begin.rcode
-# have a look...this looks easy enough
+<p>have a look...this looks easy enough</p>
+<!--begin.rcode fig.width=7, fig.height=6
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=label)) + ggtitle('d -- easy clusters')
 end.rcode-->
-
+<p>perform clustering</p>
 <!--begin.rcode
-# perform clustering
 result1 <- kmeans(d[,1:2], 4)
 end.rcode-->
-
+<p>lets compare a few cluster solutions</p>
 <!--begin.rcode
-#lets compare a few cluster solutions
 result12 <- kmeans(d[,1:2], 2)
 d$cluster12 <- as.factor(result12$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster12)) + ggtitle('kmeans result1 -- (k=2)')
@@ -51,7 +48,7 @@ result15 <- kmeans(d[,1:2], 5)
 d$cluster15 <- as.factor(result15$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster15)) + ggtitle('kmeans result1 -- (k=5)')
 end.rcode-->
-
+<p></p>
 <!--begin.rcode
 res.comp <- as.data.frame ( rbind(  c(2 ,result12$tot.withinss)
                   , c(3 ,result13$tot.withinss)
@@ -63,7 +60,9 @@ ggplot(res.comp,aes(res.comp[,1] , as.numeric(res.comp[,2]) ))+
        geom_line()
 # here are the results...note the algorithm found clusters whose means are close to the true means of our synthetic clusters
 result1
-
+end.rcode-->
+TODO: how to plot the centroids on the cluster graph?<p></p>
+<!--begin.rcode
 # plot results...we are looking good
 d$cluster1 <- as.factor(result1$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster1)) + ggtitle('kmeans result1 -- success!\n(k=4)')
@@ -134,7 +133,7 @@ grid.arrange(p1, p2)
 end.rcode-->
 
 <p>You can also embed plots, for example:</p>
-
+<p></p>
 <!--begin.rcode fig.width=7, fig.height=6
 plot(cars)
 end.rcode-->
