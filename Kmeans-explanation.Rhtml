@@ -15,8 +15,7 @@ library(ggplot2)
 set.seed(1)
 end.rcode-->
 
-
-<p>For our first example, let's create some synthetic easy-to-cluster data. This generates 4 little clouds of points and joins them all into one data frame.</p>
+<p>For our first example, let's create some synthetic easy-to-cluster data. This generates 4 little clouds of points , each as a dataframe, and joins them all into one data frame. (Adding more rows onto the bottom, not more collumns.)</p>
 <!--begin.rcode make some example data
 d <- data.frame()
 d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label=as.factor(rep(1, each=20))))
@@ -25,8 +24,10 @@ d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(4, each=20))))
 end.rcode-->
 <p>have a look...this looks easy enough</p>
-<!--begin.rcode fig.width=7, fig.height=6
-ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=label)) + ggtitle('d -- easy clusters')
+<!--begin.rcode show the base data
+ggplot(d, aes(x=x, y=y)) 
+       + geom_point(aes(colour=label)) #use the labels to colour the points
+       + ggtitle('d -- easy clusters')
 end.rcode-->
 <p>perform clustering</p>
 <!--begin.rcode
