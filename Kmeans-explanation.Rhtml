@@ -5,10 +5,12 @@
 </head>
 
 <body>
-<p>K Means is a clustering method to </p>
-<p></p>
+<p>K Means is a clustering method to <em>find</em> groups in data.</p>
+<p>Begin by importing the <code>stats</code> library, which contains the <code>kmeans</code> implementation we'll be using.</p>
 <!--begin.rcode import some libraries
+if("stats" %in% rownames(installed.packages()) == FALSE) {install.packages("stats")} #this line checks if the package is installed and if it isn't, installs it.
 library(stats)
+if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")}
 library(ggplot2)
 set.seed(1)
 end.rcode-->
@@ -119,6 +121,7 @@ iris.result$cluster
 
 # let's look at the scatterplots of clustering results & true labels together (using package gridExtra)
 # first install this guy
+if("gridExtra" %in% rownames(installed.packages()) == FALSE) {install.packages("gridExtra")}
 library(gridExtra)
 
 # now create our two scatterplots...note that ggplot returns an *object* which can be stored!
