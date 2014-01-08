@@ -22,16 +22,19 @@ d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label
 d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(2, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label=as.factor(rep(3, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(4, each=20))))
+head(d)
 end.rcode-->
 <p>have a look...this looks easy enough</p>
 <!--begin.rcode show the base data
-ggplot(d, aes(x=x, y=y)) 
-       + geom_point(aes(colour=label)) #use the labels to colour the points
-       + ggtitle('d -- easy clusters')
+#TODO: this plot isn't showing any more, fix it
+ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=label)) + ggtitle('d -- easy clusters')
 end.rcode-->
 <p>perform clustering</p>
 <!--begin.rcode
 result1 <- kmeans(d[,1:2], 4)
+#kmeans(x, centers, ...
+#x: numeric matrix of data, or an object that can be coerced to such a matrix (such as a numeric vector or a data frame with all numeric columns).
+#centers: either the number of clusters, say k, or a set of initial (distinct) cluster centres. If a number, a random set of (distinct) rows in x is chosen as the initial centres.
 end.rcode-->
 <p>lets compare a few cluster solutions</p>
 <!--begin.rcode
