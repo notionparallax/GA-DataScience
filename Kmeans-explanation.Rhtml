@@ -22,6 +22,9 @@ d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label
 d <- rbind(d, data.frame(x=1 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(2, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=1 + rnorm(20, 0, 0.1), label=as.factor(rep(3, each=20))))
 d <- rbind(d, data.frame(x=3 + rnorm(20, 0, 0.1), y=3 + rnorm(20, 0, 0.1), label=as.factor(rep(4, each=20))))
+end.rcode-->
+<p>This ends up with a dataframe that looks something like this:</p>
+<!--begin.rcode
 head(d)
 end.rcode-->
 <p>have a look...this looks easy enough</p>
@@ -41,20 +44,26 @@ end.rcode-->
 result12 <- kmeans(d[,1:2], 2)
 d$cluster12 <- as.factor(result12$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster12)) + ggtitle('kmeans result1 -- (k=2)')
-
+end.rcode-->
+<p>With two centroids searching for clusters to own it tends to pick two of the obvious clusters and treat them as one.</p>
+<!--begin.rcode
 result13 <- kmeans(d[,1:2], 3)
 d$cluster13 <- as.factor(result13$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster13)) + ggtitle('kmeans result1 -- (k=3)')
-
+end.rcode-->
+<p>With three centres it finds two of the obvious clusters, but groups the remaining two together</p>
+<!--begin.rcode
 result14 <- kmeans(d[,1:2], 4)
 d$cluster14 <- as.factor(result14$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster14)) + ggtitle('kmeans result1 -- (k=4)')
-
+end.rcode-->
+<p>Four behaves exactly as you would expect it to!</p>
+<!--begin.rcode
 result15 <- kmeans(d[,1:2], 5)
 d$cluster15 <- as.factor(result15$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster15)) + ggtitle('kmeans result1 -- (k=5)')
 end.rcode-->
-<p></p>
+<p>with 5 centres it tries to pick off a few weak points at the edge of one of the herds and call them a group.</p>
 <!--begin.rcode
 res.comp <- as.data.frame ( rbind(  c(2 ,result12$tot.withinss)
                   , c(3 ,result13$tot.withinss)
