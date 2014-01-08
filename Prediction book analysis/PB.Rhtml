@@ -6,12 +6,14 @@
 
 <body>
 
-<p></p>
-
+<p>if RMySQL is being a pain in the arse, then running this seems to help:</p>
+<pre>sudo apt-get install libmysqlclient-dev libcurl4-openssl-dev</pre>
 <!--begin.rcode
 #if we don't have the package needed, install it
 #this is crying out for some refactoring
 library(tools)
+if("devtools" %in% rownames(installed.packages()) == FALSE) {install.packages("devtools")}
+library("devtools")
 if("DBI" %in% rownames(installed.packages()) == FALSE) {install.packages("DBI")}
 library("DBI")
 if("RMySQL" %in% rownames(installed.packages()) == FALSE) {install.packages("RMySQL")}
