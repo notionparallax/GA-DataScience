@@ -84,7 +84,8 @@ end.rcode-->
 <table>
 </div>
 <!--begin.rcode
-res.comp <- as.data.frame ( rbind(  c(2 ,result12$tot.withinss)
+res.comp <- as.data.frame ( rbind(  
+                    c(2 ,result12$tot.withinss)
                   , c(3 ,result13$tot.withinss)
                   , c(4 ,result14$tot.withinss)
                   , c(5 ,result15$tot.withinss)
@@ -92,7 +93,11 @@ res.comp <- as.data.frame ( rbind(  c(2 ,result12$tot.withinss)
 
 ggplot(res.comp,aes(res.comp[,1] , as.numeric(res.comp[,2]) ))+
        geom_line()
-# here are the results...note the algorithm found clusters whose means are close to the true means of our synthetic clusters
+end.rcode-->
+<p>The Total within-cluster sum of squares decreases rapidly as it finds the 'real' clusters, and then levels off as it starts to make a stab at what might be a cluster. </p>
+<h3>Results</h3>
+<p>Here are the results...note the algorithm found clusters whose means are close to the true means of our synthetic clusters</p>
+<!--begin.rcode
 result1
 end.rcode-->
 TODO: how to plot the centroids on the cluster graph?<p></p>
