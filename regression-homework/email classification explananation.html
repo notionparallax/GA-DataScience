@@ -1,0 +1,561 @@
+<html>
+
+<head>
+<style type="text/css">
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+},
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Baysian email classification</title>
+</head>
+
+<body>
+
+<p>This is an attempt to understand and document the Baysian email classification example. It is simply a reformatting, with comments of the code used in class.</p>
+</div>
+<h2>Notes and Licence</h2>
+<table>
+<tr>
+<td>File-Name:</td><td>email_classify.R</td>
+</tr>
+<tr>
+<td>Date:</td><td>2012-02-10 </td>
+</tr>
+<tr>
+<td>Author:</td><td>Drew Conway (drew.conway@nyu.edu)</td>
+</tr>
+<tr>
+<td>Purpose:</td><td>Code for Chapter 3. In this case we introduce the notion of binary classification. In machine learning this is a method for determining what of two categories a  given observation belongs to.  To show this, we will create a simple naive Bayes classifier for SPAM email detection, and visualize the results.</td>
+</tr>
+<tr>
+<td>Data Used:</td><td>Email messages contained in data/ directory, source: http://spamassassin.apache.org/publiccorpus/</td>
+</tr>
+<tr>
+<td>Packages Used:</td><td>tm, ggplot2</td>
+</tr>
+</table>
+
+<p>All source code is copyright (c) 2012, under the Simplified BSD License.</p>
+<p>For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php</p>
+<p>All images and materials produced by this code are licensed under the Creative Commons  Attribution-Share Alike 3.0 United States License: http://creativecommons.org/licenses/by-sa/3.0/us/</p>
+
+<p>All rights reserved.</p>
+
+<p>NOTE: If you are running this in the R console you must use the 'setwd' command to set the working directory for the console to whereever you have saved this file prior to running. Otherwise you will see errors when loading data or saving figures!</p>
+</div>
+
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Load libraries</span>
+<span class="hl kwd">library</span><span class="hl std">(</span><span class="hl str">&quot;tm&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">library</span><span class="hl std">(</span><span class="hl str">&quot;ggplot2&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">setwd</span><span class="hl std">(</span><span class="hl str">&quot;/home/ben/Documents/GA-DS/ML_for_Hackers/03-Classification&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Set the global paths</span>
+<span class="hl std">spam.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;spam&quot;</span><span class="hl std">)</span>
+<span class="hl std">spam2.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;spam_2&quot;</span><span class="hl std">)</span>
+<span class="hl std">easyham.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;easy_ham&quot;</span><span class="hl std">)</span>
+<span class="hl std">easyham2.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;easy_ham_2&quot;</span><span class="hl std">)</span>
+<span class="hl std">hardham.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;hard_ham&quot;</span><span class="hl std">)</span>
+<span class="hl std">hardham2.path</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;hard_ham_2&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Create motivating plot</span>
+<span class="hl std">x</span>  <span class="hl kwb">&lt;-</span>       <span class="hl kwd">runif</span><span class="hl std">(</span><span class="hl num">1000</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">40</span><span class="hl std">)</span>
+<span class="hl std">y1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(</span><span class="hl kwd">runif</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">),</span> <span class="hl num">1</span><span class="hl std">)</span>
+<span class="hl std">y2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(</span><span class="hl kwd">runif</span><span class="hl std">(</span><span class="hl num">800</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">30</span><span class="hl std">),</span> <span class="hl num">2</span><span class="hl std">)</span>
+<span class="hl std">y3</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(</span><span class="hl kwd">runif</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">,</span> <span class="hl num">30</span><span class="hl std">,</span> <span class="hl num">40</span><span class="hl std">),</span> <span class="hl num">1</span><span class="hl std">)</span>
+
+<span class="hl std">val</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwd">cbind</span><span class="hl std">(x,</span> <span class="hl kwd">rbind</span><span class="hl std">(y1, y2, y3)),</span>
+                  <span class="hl kwc">stringsAsFactors</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+
+<span class="hl std">ex1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(val,</span> <span class="hl kwd">aes</span><span class="hl std">(x, V2))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_jitter</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">shape</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(V3)),</span>
+                  <span class="hl kwc">position</span> <span class="hl std">=</span> <span class="hl kwd">position_jitter</span><span class="hl std">(</span><span class="hl kwc">height</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_shape_discrete</span><span class="hl std">(</span><span class="hl kwc">guide</span> <span class="hl std">=</span> <span class="hl str">&quot;none&quot;</span><span class="hl std">,</span> <span class="hl kwc">solid</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_hline</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">yintercept</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span><span class="hl num">30</span><span class="hl std">)),</span> <span class="hl kwc">linetype</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme_bw</span><span class="hl std">()</span> <span class="hl opt">+</span>
+  <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;X&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Y&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">ggsave</span><span class="hl std">(</span><span class="hl kwc">plot</span> <span class="hl std">= ex1,</span>
+       <span class="hl kwc">filename</span> <span class="hl std">=</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;images&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;00_Ex1.pdf&quot;</span><span class="hl std">),</span>
+       <span class="hl kwc">height</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span>
+       <span class="hl kwc">width</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: cannot open file 'images/00_Ex1.pdf'
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Return a single element vector of just the email body</span>
+<span class="hl com"># This is a very simple approach, as we are only using </span>
+<span class="hl com"># words as features</span>
+<span class="hl std">get.msg</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">path</span><span class="hl std">)</span>
+<span class="hl std">{</span>
+  <span class="hl std">con</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">file</span><span class="hl std">(path,</span> <span class="hl kwc">open</span> <span class="hl std">=</span> <span class="hl str">&quot;rt&quot;</span><span class="hl std">,</span> <span class="hl kwc">encoding</span> <span class="hl std">=</span> <span class="hl str">&quot;latin1&quot;</span><span class="hl std">)</span>
+  <span class="hl std">text</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">readLines</span><span class="hl std">(con)</span>
+  <span class="hl com"># The message always begins after the first full line break</span>
+  <span class="hl std">msg</span> <span class="hl kwb">&lt;-</span> <span class="hl std">text[</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl kwd">which</span><span class="hl std">(text</span> <span class="hl opt">==</span> <span class="hl str">&quot;&quot;</span><span class="hl std">)[</span><span class="hl num">1</span><span class="hl std">]</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwd">length</span><span class="hl std">(text),</span> <span class="hl num">1</span><span class="hl std">)]</span>
+  <span class="hl kwd">close</span><span class="hl std">(con)</span>
+  <span class="hl kwd">return</span><span class="hl std">(</span><span class="hl kwd">paste</span><span class="hl std">(msg,</span> <span class="hl kwc">collapse</span> <span class="hl std">=</span> <span class="hl str">&quot;\n&quot;</span><span class="hl std">))</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># Create a TermDocumentMatrix (TDM) from the corpus of SPAM email.</span>
+<span class="hl com"># The TDM control can be modified, and the sparsity level can be </span>
+<span class="hl com"># altered.  This TDM is used to create the feature set used to do </span>
+<span class="hl com"># train our classifier.</span>
+<span class="hl std">get.tdm</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">doc.vec</span><span class="hl std">)</span>
+<span class="hl std">{</span>
+  <span class="hl std">control</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">stopwords</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span>            <span class="hl com">#fullstops etc</span>
+                  <span class="hl kwc">removePunctuation</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span>
+                  <span class="hl kwc">removeNumbers</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span>
+                  <span class="hl kwc">minDocFreq</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">)</span>             <span class="hl com">#needs to have the word at least twice to include it</span>
+  <span class="hl std">doc.corpus</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">Corpus</span><span class="hl std">(</span><span class="hl kwd">VectorSource</span><span class="hl std">(doc.vec))</span>
+  <span class="hl std">doc.dtm</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">TermDocumentMatrix</span><span class="hl std">(doc.corpus, control)</span>
+  <span class="hl kwd">return</span><span class="hl std">(doc.dtm)</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># This function takes a file path to an email file and a string, </span>
+<span class="hl com"># the term parameter, and returns the count of that term in </span>
+<span class="hl com"># the email body.</span>
+<span class="hl std">count.word</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">path</span><span class="hl std">,</span> <span class="hl kwc">term</span><span class="hl std">)</span>
+<span class="hl std">{</span>
+  <span class="hl std">msg</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.msg</span><span class="hl std">(path)</span>
+  <span class="hl std">msg.corpus</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">Corpus</span><span class="hl std">(</span><span class="hl kwd">VectorSource</span><span class="hl std">(msg))</span>
+  <span class="hl com"># Hard-coded TDM control</span>
+  <span class="hl std">control</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">stopwords</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span>
+                  <span class="hl kwc">removePunctuation</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span>
+                  <span class="hl kwc">removeNumbers</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+  <span class="hl std">msg.tdm</span>   <span class="hl kwb">&lt;-</span> <span class="hl kwd">TermDocumentMatrix</span><span class="hl std">(msg.corpus, control)</span>
+  <span class="hl std">word.freq</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rowSums</span><span class="hl std">(</span><span class="hl kwd">as.matrix</span><span class="hl std">(msg.tdm))</span>
+  <span class="hl std">term.freq</span> <span class="hl kwb">&lt;-</span> <span class="hl std">word.freq[</span><span class="hl kwd">which</span><span class="hl std">(</span><span class="hl kwd">names</span><span class="hl std">(word.freq)</span> <span class="hl opt">==</span> <span class="hl std">term)]</span>
+  <span class="hl com"># We use ifelse here because term.freq = NA if nothing is found</span>
+  <span class="hl kwd">return</span><span class="hl std">(</span><span class="hl kwd">ifelse</span><span class="hl std">(</span><span class="hl kwd">length</span><span class="hl std">(term.freq)</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span><span class="hl std">, term.freq,</span> <span class="hl num">0</span><span class="hl std">))</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># This is the our workhorse function for classifying email.  It takes </span>
+<span class="hl com"># two required paramters: a file path to an email to classify, and</span>
+<span class="hl com"># a data frame of the trained data.  The function also takes two </span>
+<span class="hl com"># optional parameters.  First, a prior over the probability that an email</span>
+<span class="hl com"># is SPAM, which we set to 0.5 (naive), and constant value for the</span>
+<span class="hl com"># probability on words in the email that are not in our training data.</span>
+<span class="hl com"># The function returns the naive Bayes probability that the given email</span>
+<span class="hl com"># is SPAM.  </span>
+<span class="hl std">classify.email</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">path</span><span class="hl std">,</span> <span class="hl kwc">training.df</span><span class="hl std">,</span> <span class="hl kwc">prior</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">,</span> <span class="hl kwc">c</span> <span class="hl std">=</span> <span class="hl num">1e-6</span><span class="hl std">)</span>
+<span class="hl std">{</span>
+  <span class="hl com"># Here, we use many of the support functions to get the</span>
+  <span class="hl com"># email text data in a workable format</span>
+  <span class="hl std">msg</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.msg</span><span class="hl std">(path)</span>
+  <span class="hl std">msg.tdm</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.tdm</span><span class="hl std">(msg)</span>
+  <span class="hl std">msg.freq</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rowSums</span><span class="hl std">(</span><span class="hl kwd">as.matrix</span><span class="hl std">(msg.tdm))</span>
+  <span class="hl com"># Find intersections of words</span>
+  <span class="hl std">msg.match</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">intersect</span><span class="hl std">(</span><span class="hl kwd">names</span><span class="hl std">(msg.freq), training.df</span><span class="hl opt">$</span><span class="hl std">term)</span>
+  <span class="hl com"># Now, we just perform the naive Bayes calculation</span>
+  <span class="hl kwa">if</span><span class="hl std">(</span><span class="hl kwd">length</span><span class="hl std">(msg.match)</span> <span class="hl opt">&lt;</span> <span class="hl num">1</span><span class="hl std">)</span>
+  <span class="hl std">{</span>
+    <span class="hl kwd">return</span><span class="hl std">(prior</span> <span class="hl opt">*</span> <span class="hl std">c</span> <span class="hl opt">^</span> <span class="hl std">(</span><span class="hl kwd">length</span><span class="hl std">(msg.freq)))</span>
+  <span class="hl std">}</span>
+  <span class="hl kwa">else</span>
+  <span class="hl std">{</span>
+    <span class="hl std">match.probs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">training.df</span><span class="hl opt">$</span><span class="hl std">occurrence[</span><span class="hl kwd">match</span><span class="hl std">(msg.match, training.df</span><span class="hl opt">$</span><span class="hl std">term)]</span>
+    <span class="hl kwd">return</span><span class="hl std">(prior</span> <span class="hl opt">*</span> <span class="hl kwd">prod</span><span class="hl std">(match.probs)</span> <span class="hl opt">*</span> <span class="hl std">c</span> <span class="hl opt">^</span> <span class="hl std">(</span><span class="hl kwd">length</span><span class="hl std">(msg.freq)</span> <span class="hl opt">-</span> <span class="hl kwd">length</span><span class="hl std">(msg.match)))</span>
+  <span class="hl std">}</span>
+<span class="hl std">}</span>
+
+
+<span class="hl com"># With all of our support functions written, we can perform the classification.</span>
+<span class="hl com"># First, we create document corpus for spam messages</span>
+
+<span class="hl com"># Get all the SPAM-y email into a single vector</span>
+<span class="hl std">spam.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(spam.path)</span>
+<span class="hl std">spam.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">spam.docs[</span><span class="hl kwd">which</span><span class="hl std">(spam.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+<span class="hl std">all.spam</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(spam.docs,</span>
+                   <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">get.msg</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(spam.path, p)))</span>
+
+<span class="hl com"># Create a DocumentTermMatrix from that vector</span>
+<span class="hl std">spam.tdm</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.tdm</span><span class="hl std">(all.spam)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: vectorized sources must have positive length
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Create a data frame that provides the feature set from the training SPAM data</span>
+<span class="hl std">spam.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.matrix</span><span class="hl std">(spam.tdm)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.tdm' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam.counts</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rowSums</span><span class="hl std">(spam.matrix)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.matrix' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwd">cbind</span><span class="hl std">(</span><span class="hl kwd">names</span><span class="hl std">(spam.counts),</span>
+                            <span class="hl kwd">as.numeric</span><span class="hl std">(spam.counts)),</span>
+                      <span class="hl kwc">stringsAsFactors</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.counts' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">names</span><span class="hl std">(spam.df)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;term&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;frequency&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam.df</span><span class="hl opt">$</span><span class="hl std">frequency</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(spam.df</span><span class="hl opt">$</span><span class="hl std">frequency)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam.occurrence</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl kwd">nrow</span><span class="hl std">(spam.matrix),</span>
+                          <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">i</span><span class="hl std">)</span>
+                          <span class="hl std">{</span>
+                            <span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">which</span><span class="hl std">(spam.matrix[i, ]</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span><span class="hl std">))</span> <span class="hl opt">/</span> <span class="hl kwd">ncol</span><span class="hl std">(spam.matrix)</span>
+                          <span class="hl std">})</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.matrix' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam.density</span> <span class="hl kwb">&lt;-</span> <span class="hl std">spam.df</span><span class="hl opt">$</span><span class="hl std">frequency</span> <span class="hl opt">/</span> <span class="hl kwd">sum</span><span class="hl std">(spam.df</span><span class="hl opt">$</span><span class="hl std">frequency)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Add the term density and occurrence rate</span>
+<span class="hl std">spam.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">transform</span><span class="hl std">(spam.df,</span>
+                     <span class="hl kwc">density</span> <span class="hl std">= spam.density,</span>
+                     <span class="hl kwc">occurrence</span> <span class="hl std">= spam.occurrence)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Now do the same for the EASY HAM email</span>
+<span class="hl std">easyham.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(easyham.path)</span>
+<span class="hl std">easyham.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">easyham.docs[</span><span class="hl kwd">which</span><span class="hl std">(easyham.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+<span class="hl std">all.easyham</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(easyham.docs[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl kwd">length</span><span class="hl std">(spam.docs)],</span>
+                      <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">get.msg</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(easyham.path, p)))</span>
+</pre></div>
+<div class="warning"><pre class="knitr r">## Warning: cannot open file 'data/easy_ham/NA': No such file or directory
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: cannot open the connection
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.tdm</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.tdm</span><span class="hl std">(all.easyham)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'all.easyham' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.matrix</span><span class="hl std">(easyham.tdm)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.tdm' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.counts</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rowSums</span><span class="hl std">(easyham.matrix)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.matrix' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwd">cbind</span><span class="hl std">(</span><span class="hl kwd">names</span><span class="hl std">(easyham.counts),</span>
+                               <span class="hl kwd">as.numeric</span><span class="hl std">(easyham.counts)),</span>
+                         <span class="hl kwc">stringsAsFactors</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.counts' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">names</span><span class="hl std">(easyham.df)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;term&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;frequency&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.df</span><span class="hl opt">$</span><span class="hl std">frequency</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(easyham.df</span><span class="hl opt">$</span><span class="hl std">frequency)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.occurrence</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl kwd">nrow</span><span class="hl std">(easyham.matrix),</span>
+                            <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">i</span><span class="hl std">)</span>
+                            <span class="hl std">{</span>
+                              <span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">which</span><span class="hl std">(easyham.matrix[i, ]</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span><span class="hl std">))</span> <span class="hl opt">/</span> <span class="hl kwd">ncol</span><span class="hl std">(easyham.matrix)</span>
+                            <span class="hl std">})</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.matrix' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.density</span> <span class="hl kwb">&lt;-</span> <span class="hl std">easyham.df</span><span class="hl opt">$</span><span class="hl std">frequency</span> <span class="hl opt">/</span> <span class="hl kwd">sum</span><span class="hl std">(easyham.df</span><span class="hl opt">$</span><span class="hl std">frequency)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">easyham.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">transform</span><span class="hl std">(easyham.df,</span>
+                        <span class="hl kwc">density</span> <span class="hl std">= easyham.density,</span>
+                        <span class="hl kwc">occurrence</span> <span class="hl std">= easyham.occurrence)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Run classifer against HARD HAM</span>
+<span class="hl std">hardham.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(hardham.path)</span>
+<span class="hl std">hardham.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">hardham.docs[</span><span class="hl kwd">which</span><span class="hl std">(hardham.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+
+<span class="hl std">hardham.spamtest</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(hardham.docs,</span>
+                           <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">classify.email</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(hardham.path, p),</span> <span class="hl kwc">training.df</span> <span class="hl std">= spam.df))</span>
+
+<span class="hl std">hardham.hamtest</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(hardham.docs,</span>
+                          <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">classify.email</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(hardham.path, p),</span> <span class="hl kwc">training.df</span> <span class="hl std">= easyham.df))</span>
+
+<span class="hl std">hardham.res</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ifelse</span><span class="hl std">(hardham.spamtest</span> <span class="hl opt">&gt;</span> <span class="hl std">hardham.hamtest,</span>
+                      <span class="hl num">TRUE</span><span class="hl std">,</span>
+                      <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl kwd">summary</span><span class="hl std">(hardham.res)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##    Mode    NA's 
+## logical       0
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Find counts of just terms 'html' and 'table' in all SPAM and EASYHAM docs, and create figure</span>
+<span class="hl std">html.spam</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(spam.docs,</span>
+                    <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">count.word</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(spam.path, p),</span> <span class="hl str">&quot;html&quot;</span><span class="hl std">))</span>
+<span class="hl std">table.spam</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(spam.docs,</span>
+                     <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">count.word</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(spam.path, p),</span> <span class="hl str">&quot;table&quot;</span><span class="hl std">))</span>
+<span class="hl std">spam.init</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(html.spam, table.spam,</span> <span class="hl str">&quot;SPAM&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">html.easyham</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(easyham.docs,</span>
+                       <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">count.word</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(easyham.path, p),</span> <span class="hl str">&quot;html&quot;</span><span class="hl std">))</span>
+<span class="hl std">table.easyham</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sapply</span><span class="hl std">(easyham.docs,</span>
+                        <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span> <span class="hl kwd">count.word</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(easyham.path, p),</span> <span class="hl str">&quot;table&quot;</span><span class="hl std">))</span>
+<span class="hl std">easyham.init</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(html.easyham, table.easyham,</span> <span class="hl str">&quot;EASYHAM&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">init.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwd">rbind</span><span class="hl std">(spam.init, easyham.init),</span>
+                      <span class="hl kwc">stringsAsFactors</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl kwd">names</span><span class="hl std">(init.df)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;html&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;table&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;type&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: 'names' attribute [3] must be the same length as the vector [1]
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">init.df</span><span class="hl opt">$</span><span class="hl std">html</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(init.df</span><span class="hl opt">$</span><span class="hl std">html)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 2
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">init.df</span><span class="hl opt">$</span><span class="hl std">table</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(init.df</span><span class="hl opt">$</span><span class="hl std">table)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 2
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">init.df</span><span class="hl opt">$</span><span class="hl std">type</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.factor</span><span class="hl std">(init.df</span><span class="hl opt">$</span><span class="hl std">type)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 2
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">init.plot1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(init.df,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= html,</span> <span class="hl kwc">y</span> <span class="hl std">= table))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_point</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">shape</span> <span class="hl std">= type))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_shape_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;SPAM&quot;</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl str">&quot;EASYHAM&quot;</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">),</span> <span class="hl kwc">name</span> <span class="hl std">=</span> <span class="hl str">&quot;Email Type&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;Frequency of 'html'&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Freqeuncy of 'table'&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">stat_abline</span><span class="hl std">(</span><span class="hl kwc">yintersept</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwc">slope</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme_bw</span><span class="hl std">()</span>
+<span class="hl kwd">ggsave</span><span class="hl std">(</span><span class="hl kwc">plot</span> <span class="hl std">= init.plot1,</span>
+       <span class="hl kwc">filename</span> <span class="hl std">=</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;images&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;01_init_plot1.pdf&quot;</span><span class="hl std">),</span>
+       <span class="hl kwc">width</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span>
+       <span class="hl kwc">height</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: cannot open file 'images/01_init_plot1.pdf'
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">init.plot2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(init.df,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= html,</span> <span class="hl kwc">y</span> <span class="hl std">= table))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_point</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">shape</span> <span class="hl std">= type),</span> <span class="hl kwc">position</span> <span class="hl std">=</span> <span class="hl str">&quot;jitter&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_shape_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;SPAM&quot;</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl str">&quot;EASYHAM&quot;</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">),</span> <span class="hl kwc">name</span> <span class="hl std">=</span> <span class="hl str">&quot;Email Type&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;Frequency of 'html'&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Freqeuncy of 'table'&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">stat_abline</span><span class="hl std">(</span><span class="hl kwc">yintersept</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwc">slope</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme_bw</span><span class="hl std">()</span>
+<span class="hl kwd">ggsave</span><span class="hl std">(</span><span class="hl kwc">plot</span> <span class="hl std">= init.plot2,</span>
+       <span class="hl kwc">filename</span> <span class="hl std">=</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;images&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;02_init_plot2.pdf&quot;</span><span class="hl std">),</span>
+       <span class="hl kwc">width</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span>
+       <span class="hl kwc">height</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: cannot open file 'images/02_init_plot2.pdf'
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com">#********************</span>
+                    <span class="hl com"># Finally, attempt to classify the HARDHAM data using the classifer developed above.</span>
+                    <span class="hl com"># The rule is to classify a message as SPAM if Pr(email) = SPAM &gt; Pr(email) = HAM</span>
+                    <span class="hl std">spam.classifier</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">path</span><span class="hl std">)</span>
+                    <span class="hl std">{</span>
+                      <span class="hl std">pr.spam</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">classify.email</span><span class="hl std">(path, spam.df)</span>
+                      <span class="hl std">pr.ham</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">classify.email</span><span class="hl std">(path, easyham.df)</span>
+                      <span class="hl kwd">return</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(pr.spam, pr.ham,</span> <span class="hl kwd">ifelse</span><span class="hl std">(pr.spam</span> <span class="hl opt">&gt;</span> <span class="hl std">pr.ham,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">)))</span>
+                    <span class="hl std">}</span>
+<span class="hl com">#********************</span>
+
+<span class="hl com">#above here is functions</span>
+<span class="hl com">#below here is calling them</span>
+
+<span class="hl com"># Get lists of all the email messages</span>
+<span class="hl std">easyham2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(easyham2.path)</span>
+<span class="hl std">easyham2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">easyham2.docs[</span><span class="hl kwd">which</span><span class="hl std">(easyham2.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+
+<span class="hl std">hardham2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(hardham2.path)</span>
+<span class="hl std">hardham2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">hardham2.docs[</span><span class="hl kwd">which</span><span class="hl std">(hardham2.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+
+<span class="hl std">spam2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dir</span><span class="hl std">(spam2.path)</span>
+<span class="hl std">spam2.docs</span> <span class="hl kwb">&lt;-</span> <span class="hl std">spam2.docs[</span><span class="hl kwd">which</span><span class="hl std">(spam2.docs</span> <span class="hl opt">!=</span> <span class="hl str">&quot;cmds&quot;</span><span class="hl std">)]</span>
+
+<span class="hl com"># Classify them all!</span>
+<span class="hl std">easyham2.class</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">suppressWarnings</span><span class="hl std">(</span><span class="hl kwd">lapply</span><span class="hl std">(easyham2.docs,</span>
+                                   <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span>
+                                   <span class="hl std">{</span>
+                                     <span class="hl kwd">spam.classifier</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(easyham2.path, p))</span>
+                                   <span class="hl std">}))</span>
+<span class="hl std">hardham2.class</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">suppressWarnings</span><span class="hl std">(</span><span class="hl kwd">lapply</span><span class="hl std">(hardham2.docs,</span>
+                                   <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span>
+                                   <span class="hl std">{</span>
+                                     <span class="hl kwd">spam.classifier</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(hardham2.path, p))</span>
+                                   <span class="hl std">}))</span>
+<span class="hl std">spam2.class</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">suppressWarnings</span><span class="hl std">(</span><span class="hl kwd">lapply</span><span class="hl std">(spam2.docs,</span>
+                                <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">p</span><span class="hl std">)</span>
+                                <span class="hl std">{</span>
+                                  <span class="hl kwd">spam.classifier</span><span class="hl std">(</span><span class="hl kwd">file.path</span><span class="hl std">(spam2.path, p))</span>
+                                <span class="hl std">}))</span>
+
+<span class="hl com"># Create a single, final, data frame with all of the classification data in it</span>
+<span class="hl std">easyham2.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">do.call</span><span class="hl std">(rbind, easyham2.class)</span>
+<span class="hl std">easyham2.final</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(easyham2.matrix,</span> <span class="hl str">&quot;EASYHAM&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">hardham2.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">do.call</span><span class="hl std">(rbind, hardham2.class)</span>
+<span class="hl std">hardham2.final</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(hardham2.matrix,</span> <span class="hl str">&quot;HARDHAM&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">spam2.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">do.call</span><span class="hl std">(rbind, spam2.class)</span>
+<span class="hl std">spam2.final</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">cbind</span><span class="hl std">(spam2.matrix,</span> <span class="hl str">&quot;SPAM&quot;</span><span class="hl std">)</span>
+
+<span class="hl std">class.matrix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rbind</span><span class="hl std">(easyham2.final, hardham2.final, spam2.final)</span>
+<span class="hl std">class.df</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(class.matrix,</span> <span class="hl kwc">stringsAsFactors</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl kwd">names</span><span class="hl std">(class.df)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Pr.SPAM&quot;</span> <span class="hl std">,</span><span class="hl str">&quot;Pr.HAM&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Class&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Type&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: 'names' attribute [4] must be the same length as the vector [1]
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">class.df</span><span class="hl opt">$</span><span class="hl std">Pr.SPAM</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(class.df</span><span class="hl opt">$</span><span class="hl std">Pr.SPAM)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">class.df</span><span class="hl opt">$</span><span class="hl std">Pr.HAM</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(class.df</span><span class="hl opt">$</span><span class="hl std">Pr.HAM)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">class.df</span><span class="hl opt">$</span><span class="hl std">Class</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.logical</span><span class="hl std">(</span><span class="hl kwd">as.numeric</span><span class="hl std">(class.df</span><span class="hl opt">$</span><span class="hl std">Class))</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">class.df</span><span class="hl opt">$</span><span class="hl std">Type</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.factor</span><span class="hl std">(class.df</span><span class="hl opt">$</span><span class="hl std">Type)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: replacement has 0 rows, data has 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Create final plot of results</span>
+<span class="hl std">class.plot</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(class.df,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">log</span><span class="hl std">(Pr.HAM),</span> <span class="hl kwd">log</span><span class="hl std">(Pr.SPAM)))</span> <span class="hl opt">+</span>
+    <span class="hl kwd">geom_point</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">shape</span> <span class="hl std">= Type,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">))</span> <span class="hl opt">+</span>
+    <span class="hl kwd">stat_abline</span><span class="hl std">(</span><span class="hl kwc">yintercept</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwc">slope</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl opt">+</span>
+    <span class="hl kwd">scale_shape_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;EASYHAM&quot;</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span>
+                                  <span class="hl str">&quot;HARDHAM&quot;</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span>
+                                  <span class="hl str">&quot;SPAM&quot;</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">),</span>
+                       <span class="hl kwc">name</span> <span class="hl std">=</span> <span class="hl str">&quot;Email Type&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+    <span class="hl kwd">scale_alpha</span><span class="hl std">(</span><span class="hl kwc">guide</span> <span class="hl std">=</span> <span class="hl str">&quot;none&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+    <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;log[Pr(HAM)]&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+    <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;log[Pr(SPAM)]&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+    <span class="hl kwd">theme_bw</span><span class="hl std">()</span> <span class="hl opt">+</span>
+    <span class="hl kwd">theme</span><span class="hl std">(</span><span class="hl kwc">axis.text.x</span> <span class="hl std">=</span> <span class="hl kwd">element_blank</span><span class="hl std">(),</span> <span class="hl kwc">axis.text.y</span> <span class="hl std">=</span> <span class="hl kwd">element_blank</span><span class="hl std">())</span>
+<span class="hl kwd">ggsave</span><span class="hl std">(</span><span class="hl kwc">plot</span> <span class="hl std">= class.plot,</span>
+       <span class="hl kwc">filename</span> <span class="hl std">=</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;images&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;03_final_classification.pdf&quot;</span><span class="hl std">),</span>
+       <span class="hl kwc">height</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span>
+       <span class="hl kwc">width</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: cannot open file 'images/03_final_classification.pdf'
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">get.results</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">bool.vector</span><span class="hl std">)</span>
+<span class="hl std">{</span>
+  <span class="hl std">results</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">length</span><span class="hl std">(bool.vector[</span><span class="hl kwd">which</span><span class="hl std">(bool.vector</span> <span class="hl opt">==</span> <span class="hl num">FALSE</span><span class="hl std">)])</span> <span class="hl opt">/</span> <span class="hl kwd">length</span><span class="hl std">(bool.vector),</span>
+               <span class="hl kwd">length</span><span class="hl std">(bool.vector[</span><span class="hl kwd">which</span><span class="hl std">(bool.vector</span> <span class="hl opt">==</span> <span class="hl num">TRUE</span><span class="hl std">)])</span> <span class="hl opt">/</span> <span class="hl kwd">length</span><span class="hl std">(bool.vector))</span>
+  <span class="hl kwd">return</span><span class="hl std">(results)</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># Save results as a 2x3 table</span>
+<span class="hl std">easyham2.col</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.results</span><span class="hl std">(</span><span class="hl kwd">subset</span><span class="hl std">(class.df, Type</span> <span class="hl opt">==</span> <span class="hl str">&quot;EASYHAM&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">Class)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'Type' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">hardham2.col</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.results</span><span class="hl std">(</span><span class="hl kwd">subset</span><span class="hl std">(class.df, Type</span> <span class="hl opt">==</span> <span class="hl str">&quot;HARDHAM&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">Class)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'Type' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">spam2.col</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get.results</span><span class="hl std">(</span><span class="hl kwd">subset</span><span class="hl std">(class.df, Type</span> <span class="hl opt">==</span> <span class="hl str">&quot;SPAM&quot;</span><span class="hl std">)</span><span class="hl opt">$</span><span class="hl std">Class)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'Type' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">class.res</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rbind</span><span class="hl std">(easyham2.col, hardham2.col, spam2.col)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham2.col' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">colnames</span><span class="hl std">(class.res)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;NOT SPAM&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;SPAM&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'class.res' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">print</span><span class="hl std">(class.res)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'class.res' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Save the training data for use in Chapter 4</span>
+<span class="hl kwd">write.csv</span><span class="hl std">(spam.df,</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;spam_df.csv&quot;</span><span class="hl std">),</span> <span class="hl kwc">row.names</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'spam.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">write.csv</span><span class="hl std">(easyham.df,</span> <span class="hl kwd">file.path</span><span class="hl std">(</span><span class="hl str">&quot;data&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;easyham_df.csv&quot;</span><span class="hl std">),</span> <span class="hl kwc">row.names</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error: object 'easyham.df' not found
+</pre></div>
+<div class="source"><pre class="knitr r">
+</pre></div>
+</div></div>
+
+
+<p>You can also embed plots, for example:</p>
+
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">plot</span><span class="hl std">(cars)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" class="plot" /></div></div>
+
+
+</body>
+</html>
