@@ -6,7 +6,7 @@
 
 <body>
 
-<p>if RMySQL is being a pain in the arse, then running this seems to help:</p>
+<p>if RMySQL is being a pain in the arse, then running this seems to help: (<a href="http://r.789695.n4.nabble.com/installing-RMySQL-PR-13633-tp923014p3057139.html">HT</a>)</p>
 <pre>sudo apt-get install libmysqlclient-dev libcurl4-openssl-dev</pre>
 <!--begin.rcode
 #if we don't have the package needed, install it
@@ -33,13 +33,5 @@ db <- dbConnect(drv, dbPath)
 con = dbConnect(drv, user="s133cs", dbname="BaseballDataBank",
 host="statdocs.berkeley.edu")
 end.rcode-->
-
-
-<p>You can also embed plots, for example:</p>
-
-<!--begin.rcode fig.width=7, fig.height=6
-plot(cars)
-end.rcode-->
-
 </body>
 </html>
