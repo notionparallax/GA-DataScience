@@ -98,6 +98,7 @@ end.rcode-->
 <h3>Results</h3>
 <p>Here are the results...note the algorithm found clusters whose means are close to the true means of our synthetic clusters</p>
 <!--begin.rcode
+#remember result1 came from this line above: result1 <- kmeans(d[,1:2], 4)
 result1
 end.rcode-->
 <p>plot results...we are looking good</p>
@@ -107,13 +108,20 @@ ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster1)) + ggtitle('kmeans re
 end.rcode-->
 <p>suppose we repeat these steps...what do you expect to happen?</p>
 <!--begin.rcode
+set.seed(2)
 result2 <- kmeans(d[,1:2], 4)
-end.rcode-->
-<p>Notice that the fit got worse!<br>
-(e.g. large decrease in between_SS / total_SS...also cluster means are not as good as before)</p>
-<!--begin.rcode
 result2
 end.rcode-->
+
+<!--begin.rcode 
+    result1$betweenss/result1$totss
+    end.rcode-->
+    
+<!--begin.rcode 
+    result2$betweenss/result2$totss
+    end.rcode-->
+<p>Notice that the fit got worse!<br><div style="float:right; width:300px; font-size:2em; background-color:yellow; padding: 0.5em;">The problem is, I <em>don't</em> notice the fit getting worse, even with a new random seed before I run the second kmeans I get exactly the same results both times.</div>
+(e.g. large decrease in between_SS / total_SS...also cluster means are not as good as before)</p>
 <p>and this scatterplot shows that something is obviously not right...what happened?</p>
 <!--begin.rcode
 d$cluster2 <- as.factor(result2$cluster)
@@ -122,7 +130,7 @@ end.rcode-->
 <p>This instability is a result of the random initial seeds that the clustering algorithm uses if two initial seeds begin in the same cluster, then the algorithm will have difficulty finding all the clusters (in particular, the cluster which doesn't contain an initial seed will be difficult to identify)<br>
 (note that in any case, the algorithm will still return exactly as many clusters as you asked it to!)</p>
 
-</p>So how can we create a more stable clustering fit? by repeating the fit several times and taking an average (this is effectively an ensemble clustering technique...we will talk about ensemble methods in more detail later)</p>
+</p>So how can we create a more stable clustering fit? By repeating the fit several times and taking an average (this is effectively an ensemble clustering technique...we will talk about ensemble methods in more detail later)</p>
 <!--begin.rcode
 result3 <- kmeans(d[,1:2], 4, nstart=10)
 result3
