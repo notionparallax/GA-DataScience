@@ -64,6 +64,21 @@ d$cluster15 <- as.factor(result15$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster15)) + ggtitle('kmeans result1 -- (k=5)')
 end.rcode-->
 <p>with 5 centres it tries to pick off a few weak points at the edge of one of the herds and call them a group.</p>
+
+<div class="from-help">
+<h5>Value</h5>
+
+<p>kmeans returns an object of class "kmeans" which has a print and a fitted method. It is a list with components:</p>
+<table>
+<tr><td>cluster</td><td>A vector of integers (from 1:k) indicating the cluster to which each point is allocated.</td></tr>
+<tr><td>centers</td><td>A matrix of cluster centres.</td></tr>
+<tr><td>totss</td><td>The total sum of squares.</td></tr>
+<tr><td>withinss</td><td>Vector of within-cluster sum of squares, one component per cluster.</td></tr>
+<tr><td>tot.withinss</td><td>Total within-cluster sum of squares, i.e., sum(withinss).</td></tr>
+<tr><td>betweenss</td><td>The between-cluster sum of squares, i.e. totss-tot.withinss.</td></tr>
+<tr><td>size</td><td>The number of points in each cluster.</td></tr>
+<table>
+</div>
 <!--begin.rcode
 res.comp <- as.data.frame ( rbind(  c(2 ,result12$tot.withinss)
                   , c(3 ,result13$tot.withinss)
