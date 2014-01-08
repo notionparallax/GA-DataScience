@@ -94,106 +94,84 @@ res.comp <- as.data.frame ( rbind(
 ggplot(res.comp,aes(res.comp[,1] , as.numeric(res.comp[,2]) ))+
        geom_line()
 end.rcode-->
-<p>The Total within-cluster sum of squares decreases rapidly as it finds the 'real' clusters, and then levels off as it starts to make a stab at what might be a cluster. </p>
+<p>The Total within-cluster sum of squares decreases rapidly as it finds the 'real' clusters, and then levels off as it starts to make a stab at what might be a cluster.</p>
 <h3>Results</h3>
 <p>Here are the results...note the algorithm found clusters whose means are close to the true means of our synthetic clusters</p>
 <!--begin.rcode
 result1
 end.rcode-->
-<p></p>
+<p>plot results...we are looking good</p>
 <!--begin.rcode
-# plot results...we are looking good
 d$cluster1 <- as.factor(result1$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster1)) + ggtitle('kmeans result1 -- success!\n(k=4)')
 end.rcode-->
-<p></p>
+<p>suppose we repeat these steps...what do you expect to happen?</p>
 <!--begin.rcode
-# suppose we repeat these steps...what do you expect to happen?
 result2 <- kmeans(d[,1:2], 4)
 end.rcode-->
-<p></p>
+<p># notice that the fit got worse!<br>
+(e.g. large decrease in between_SS / total_SS...also cluster means are not as good as before)</p>
 <!--begin.rcode
-# notice that the fit got worse!
-# (eg, large decrease in between_SS / total_SS...also cluster means are not as good as before)
 result2
 end.rcode-->
-<p></p>
+<p>and this scatterplot shows that something is obviously not right...what happened?</p>
 <!--begin.rcode
-# and this scatterplot shows that something is obviously not right...what happened?
 d$cluster2 <- as.factor(result2$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster2)) + ggtitle('kmeans result2 -- trouble\n(k=4)')
 end.rcode-->
-<p></p>
-<!--begin.rcode
-# this instability is a result of the random initial seeds that the clustering algorithm uses
-# if two initial seeds begin in the same cluster, then the algorithm will have difficulty finding all the clusters
-# (in particular, the cluster which doesn't contain an initial seed will be difficult to identify)
-# (note that in any case, the algorithm will still return exactly as many clusters as you asked it to!)
+<p>This instability is a result of the random initial seeds that the clustering algorithm uses if two initial seeds begin in the same cluster, then the algorithm will have difficulty finding all the clusters (in particular, the cluster which doesn't contain an initial seed will be difficult to identify)<br>
+(note that in any case, the algorithm will still return exactly as many clusters as you asked it to!)</p>
 
-# so how can we create a more stable clustering fit? by repeating the fit several times and taking an average
-# (this is effectively an ensemble clustering technique...we will talk about ensemble methods in more detail later)
+</p>So how can we create a more stable clustering fit? by repeating the fit several times and taking an average (this is effectively an ensemble clustering technique...we will talk about ensemble methods in more detail later)</p>
+<!--begin.rcode
 result3 <- kmeans(d[,1:2], 4, nstart=10)
 result3
 d$cluster3 <- as.factor(result3$cluster)
 ggplot(d, aes(x=x, y=y)) + geom_point(aes(colour=cluster3)) + ggtitle('kmeans result3 -- stable convergence\n(k=4, nstart=10)')
 end.rcode-->
-<p></p>
+<p>What happens if we introduce a new length scale into the problem? how many clusters are in the dataset now?</p>
 <!--begin.rcode
-#
-
-# what happens if we introduce a new length scale into the problem? how many clusters are in the dataset now?
 d2 <- rbind(d[,1:3], data.frame(x=1000+rnorm(20,0,50), y=1000+rnorm(20,0,50), label=as.factor(rep(5, each=20))))
 ggplot(d2, aes(x=x, y=y)) + geom_point(aes(colour=label)) + ggtitle('d2 -- multiple length scales')
 end.rcode-->
-<p></p>
+<p>as you can see, things go haywire...recall that clustering results are kind of a heuristic<br>
+(in particular, not invariant to a change in units!)</p>
 <!--begin.rcode
-# as you can see, things go haywire...recall that clustering results are kind of a heuristic
-# (in particular, not invariant to a change in units!)
 result4 <- kmeans(d2[,1:2], 5, nstart=10)
 d2$cluster4 <- as.factor(result4$cluster)
 ggplot(d2, aes(x=x, y=y)) + geom_point(aes(colour=cluster4)) + ggtitle('kmeans result4 -- trouble\n(k=5, nstart=10)')
 end.rcode-->
-<p></p>
+<p>Lets standardis the variables and see what happens</p>
 <!--begin.rcode
-#Lets standardis the variables and see what happens
 ds <- data.frame(scale(d2[,1:2],center =TRUE , scale=TRUE))
 result5 <- kmeans(ds, 4, nstart=10)
 ds$cluster4 <- as.factor(result5$cluster)
 ggplot(ds, aes(x=x, y=y)) + geom_point(aes(colour=cluster4)) + ggtitle('kmeans result5 -- trouble\n(k=5, nstart=10)')
 end.rcode-->
-<p></p>
+<p>now let's try k-means clustering with the iris dataset</p>
 <!--begin.rcode
-
-# now let's try k-means clustering with the iris dataset
 iris.result <- kmeans(iris[,1:4], 3)
 end.rcode-->
-<p></p>
+<p>look at clustering results...you can already tell something is up</p>
 <!--begin.rcode
-# look at clustering results...you can already tell something is up
 iris.result$cluster
 end.rcode-->
-<p></p>
+<p>Combine clustering results with input data (as factor)</p>
+<p>Let's look at the scatterplots of clustering results & true labels together (using package gridExtra)</p>
+<p>First install this guy</p>
 <!--begin.rcode
-# combine clustering results with input data (as factor)
-
-# let's look at the scatterplots of clustering results & true labels together (using package gridExtra)
-# first install this guy
 if("gridExtra" %in% rownames(installed.packages()) == FALSE) {install.packages("gridExtra")}
 library(gridExtra)
 end.rcode-->
-<p></p>
+<p>now create our two scatterplots...note that ggplot returns an *object* which can be stored!</p>
 <!--begin.rcode
-# now create our two scatterplots...note that ggplot returns an *object* which can be stored!
 iris2 <- cbind(iris, cluster=as.factor(iris.result$cluster))
 p1 <- ggplot(iris2, aes(x=Sepal.Width, y=Petal.Width)) + geom_point(aes(colour=cluster)) + ggtitle('clustering results')
 p2 <- ggplot(iris, aes(x=Sepal.Width, y=Petal.Width)) + geom_point(aes(colour=Species)) + ggtitle('true labels')
 
-# so what is going on here?
 grid.arrange(p1, p2)
 end.rcode-->
-<p></p>
-<!--begin.rcode
-# although clustering is a unsupervised learning technique it does an OK job at matching known groups
-end.rcode-->
+<p>so what is going on here?</p>
+<p>although clustering is a unsupervised learning technique it does an OK job at matching known groups</p>
 </body>
 </html>
