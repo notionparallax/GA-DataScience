@@ -35,10 +35,13 @@ end.rcode-->
 <p>perform clustering</p>
 <!--begin.rcode
 result1 <- kmeans(d[,1:2], 4)
-#kmeans(x, centers, ...
-#x: numeric matrix of data, or an object that can be coerced to such a matrix (such as a numeric vector or a data frame with all numeric columns).
-#centers: either the number of clusters, say k, or a set of initial (distinct) cluster centres. If a number, a random set of (distinct) rows in x is chosen as the initial centres.
 end.rcode-->
+<p><code>kmeans(x, centers, ...</code></p>
+<table>
+<tr><td>x</td><td>numeric matrix of data, or an object that can be coerced to such a matrix (such as a numeric vector or a data frame with all numeric columns).</td></tr>
+<tr><td>centers</td><td>either the number of clusters, say k, or a set of initial (distinct) cluster centres. If a number, a random set of (distinct) rows in x is chosen as the initial centres.</td></tr>
+<table>
+
 <p>lets compare a few cluster solutions</p>
 <!--begin.rcode
 result12 <- kmeans(d[,1:2], 2)
