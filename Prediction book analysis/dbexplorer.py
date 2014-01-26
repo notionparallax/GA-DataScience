@@ -6,11 +6,22 @@ Created on Sat Jan 25 18:31:15 2014
 """
 #!/usr/bin/python
 
+# using the tutorial found here:
+# http://mysql-python.sourceforge.net/MySQLdb.html
+
 import MySQLdb
 
 # Open database connection
-db = MySQLdb.connect("127.0.0.1:3306","root","","mysql" )
+db = MySQLdb.connect(user = 'root', 
+                     passwd = 'password',
+                     db = 'mysql', 
+                     host = 'localhost')
 
+
+db.query("select * from users ")
+result = db.store_result()
+print "result:",result.fetch_row()
+"""
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
@@ -21,6 +32,6 @@ cursor.execute("SELECT VERSION()")
 data = cursor.fetchone()
 
 print "Database version : %s " % data
-
+"""
 # disconnect from server
 db.close()
