@@ -1,3 +1,6 @@
+#all the predictions
+select * from  mysql.predictions
+
 #join predictions with responses
 #select * from  mysql.predictions p left outer join mysql.responses r on p.id =
 
@@ -5,8 +8,8 @@
 #select * from mysql.predictions p left outer join mysql.judgements j on p.id = j.prediction_id
 
 #join predictions with responses and judgements
-select * from  mysql.predictions p 
-	left outer join mysql.responses r
-		on p.id = r.prediction_id
-left outer join mysql.judgements j
-		on p.id = j.prediction_id
+#select * from  mysql.predictions p
+#	left outer join mysql.responses r
+#		on p.id = r.prediction_id 
+#left outer join mysql.judgements j
+#		on p.id = j.prediction_id 
