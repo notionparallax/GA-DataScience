@@ -18,20 +18,14 @@ db = MySQLdb.connect(user = 'root',
                      host = 'localhost')
 
 
-db.query("select * from users ")
+db.query("""select * from  mysql.predictions p
+	left outer join mysql.responses r
+		on p.id = r.prediction_id 
+left outer join mysql.judgements j
+		on p.id = j.prediction_id """)
 result = db.store_result()
-print "result:",result.fetch_row()
-"""
-# prepare a cursor object using cursor() method
-cursor = db.cursor()
+print result.fetch_row(maxrows=1, how=2) 
+#max=0 means all, how=0 means tuple, how=1-dict, how=2 dict with fully qualified names
 
-# execute SQL query using execute() method.
-cursor.execute("SELECT VERSION()")
-
-# Fetch a single row using fetchone() method.
-data = cursor.fetchone()
-
-print "Database version : %s " % data
-"""
 # disconnect from server
 db.close()
