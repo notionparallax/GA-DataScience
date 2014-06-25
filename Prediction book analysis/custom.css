@@ -1,0 +1,13 @@
+.output_stdout {
+    max-height: 200px;
+    overflow: scroll;
+    -webkit-column-count: 3;
+}
+.output_stderr {
+    display: none;
+    /*font-size: 0.3em;*/
+}
+body {
+    width: 1000px;
+    margin: auto;
+}
