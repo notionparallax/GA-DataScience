@@ -1,0 +1,1028 @@
+/*!
+* IPython base
+*
+*/
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0)
+}
+
+code {
+    color: #000
+}
+
+pre {
+    font-size: inherit;
+    line-height: inherit
+}
+
+label {
+    font-weight: normal
+}
+
+.border-box-sizing {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+.corner-all {
+    border-radius: 2px
+}
+
+.no-padding {
+    padding: 0
+}
+
+.hbox {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: horizontal;
+    box-align: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch
+}
+
+.hbox>* {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    flex: none
+}
+
+.vbox {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch
+}
+
+.vbox>* {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    flex: none
+}
+
+.hbox.reverse,
+.vbox.reverse,
+.reverse {
+    -webkit-box-direction: reverse;
+    -moz-box-direction: reverse;
+    box-direction: reverse;
+    flex-direction: row-reverse
+}
+
+.hbox.box-flex0,
+.vbox.box-flex0,
+.box-flex0 {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    flex: none;
+    width: auto
+}
+
+.hbox.box-flex1,
+.vbox.box-flex1,
+.box-flex1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1
+}
+
+.hbox.box-flex,
+.vbox.box-flex,
+.box-flex {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1
+}
+
+.hbox.box-flex2,
+.vbox.box-flex2,
+.box-flex2 {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+    box-flex: 2;
+    flex: 2
+}
+
+.box-group1 {
+    -webkit-box-flex-group: 1;
+    -moz-box-flex-group: 1;
+    box-flex-group: 1
+}
+
+.box-group2 {
+    -webkit-box-flex-group: 2;
+    -moz-box-flex-group: 2;
+    box-flex-group: 2
+}
+
+.hbox.start,
+.vbox.start,
+.start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    box-pack: start;
+    justify-content: flex-start
+}
+
+.hbox.end,
+.vbox.end,
+.end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    justify-content: flex-end
+}
+
+.hbox.center,
+.vbox.center,
+.center {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    justify-content: center
+}
+
+.hbox.baseline,
+.vbox.baseline,
+.baseline {
+    -webkit-box-pack: baseline;
+    -moz-box-pack: baseline;
+    box-pack: baseline;
+    justify-content: baseline
+}
+
+.hbox.stretch,
+.vbox.stretch,
+.stretch {
+    -webkit-box-pack: stretch;
+    -moz-box-pack: stretch;
+    box-pack: stretch;
+    justify-content: stretch
+}
+
+.hbox.align-start,
+.vbox.align-start,
+.align-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    box-align: start;
+    align-items: flex-start
+}
+
+.hbox.align-end,
+.vbox.align-end,
+.align-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    box-align: end;
+    align-items: flex-end
+}
+
+.hbox.align-center,
+.vbox.align-center,
+.align-center {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    align-items: center
+}
+
+.hbox.align-baseline,
+.vbox.align-baseline,
+.align-baseline {
+    -webkit-box-align: baseline;
+    -moz-box-align: baseline;
+    box-align: baseline;
+    align-items: baseline
+}
+
+.hbox.align-stretch,
+.vbox.align-stretch,
+.align-stretch {
+    -webkit-box-align: stretch;
+    -moz-box-align: stretch;
+    box-align: stretch;
+    align-items: stretch
+}
+
+div.error {
+    margin: 2em;
+    text-align: center
+}
+
+div.error>h1 {
+    font-size: 500%;
+    line-height: normal
+}
+
+div.error>p {
+    font-size: 200%;
+    line-height: normal
+}
+
+div.traceback-wrapper {
+    text-align: left;
+    max-width: 800px;
+    margin: auto
+}
+
+body {
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: visible
+}
+
+#header {
+    display: none;
+    background-color: #fff;
+    position: relative;
+    z-index: 100
+}
+
+#header #header-container {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+#header .header-bar {
+    width: 100%;
+    height: 1px;
+    background: #e7e7e7;
+    margin-bottom: -1px
+}
+
+@media print {
+    #header {
+        display: none !important
+    }
+}
+
+#header-spacer {
+    width: 100%;
+    visibility: hidden
+}
+
+@media print {
+    #header-spacer {
+        display: none
+    }
+}
+
+#ipython_notebook {
+    padding-left: 0;
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+
+@media (max-width:991px) {
+    #ipython_notebook {
+        margin-left: 10px
+    }
+}
+
+#noscript {
+    width: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    font-size: 22px;
+    color: red;
+    font-weight: bold
+}
+
+#ipython_notebook img {
+    height: 28px
+}
+
+#site {
+    width: 100%;
+    display: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    overflow: auto
+}
+
+@media print {
+    #site {
+        height: auto !important
+    }
+}
+
+.ui-button .ui-button-text {
+    padding: .2em .8em;
+    font-size: 77%
+}
+
+input.ui-button {
+    padding: .3em .9em
+}
+
+span#login_widget {
+    float: right
+}
+
+span#login_widget>.button,
+#logout {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc
+}
+
+span#login_widget>.button:hover,
+#logout:hover,
+span#login_widget>.button:focus,
+#logout:focus,
+span#login_widget>.button.focus,
+#logout.focus,
+span#login_widget>.button:active,
+#logout:active,
+span#login_widget>.button.active,
+#logout.active,
+.open>.dropdown-togglespan#login_widget>.button,
+.open>.dropdown-toggle#logout {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad
+}
+
+span#login_widget>.button:active,
+#logout:active,
+span#login_widget>.button.active,
+#logout.active,
+.open>.dropdown-togglespan#login_widget>.button,
+.open>.dropdown-toggle#logout {
+    background-image: none
+}
+
+span#login_widget>.button.disabled,#logout.disabled,span#login_widget>.button[disabled],
+#logout[disabled],fieldset[disabled] span#login_widget>.button,fieldset[disabled] #logout,
+span#login_widget>.button.disabled:hover,#logout.disabled:hover,span#login_widget>.button[disabled]:hover,
+#logout[disabled]:hover,fieldset[disabled] span#login_widget>.button:hover,fieldset[disabled] #logout:hover,
+span#login_widget>.button.disabled:focus,#logout.disabled:focus,span#login_widget>.button[disabled]:focus,
+#logout[disabled]:focus,fieldset[disabled] span#login_widget>.button:focus,fieldset[disabled] #logout:focus,
+span#login_widget>.button.disabled.focus,#logout.disabled.focus,span#login_widget>.button[disabled].focus,
+#logout[disabled].focus,fieldset[disabled] span#login_widget>.button.focus,fieldset[disabled] #logout.focus,
+span#login_widget>.button.disabled:active,#logout.disabled:active,span#login_widget>.button[disabled]:active,
+#logout[disabled]:active,fieldset[disabled] span#login_widget>.button:active,fieldset[disabled] #logout:active,
+span#login_widget>.button.disabled.active,#logout.disabled.active,span#login_widget>.button[disabled].active,
+#logout[disabled].active,fieldset[disabled] span#login_widget>.button.active,fieldset[disabled] #logout.active {
+    background-color: #fff;
+    border-color: #ccc
+}
+
+span#login_widget>.button .badge,
+#logout .badge {
+    color: #fff;
+    background-color: #333
+}
+
+.nav-header {
+    text-transform: none
+}
+
+#header>span {
+    margin-top: 10px
+}
+
+.modal_stretch .modal-dialog {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 80vh
+}
+
+.modal_stretch .modal-dialog .modal-body {
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+    flex: 1
+}
+
+@media (min-width:768px) {
+    .modal .modal-dialog {
+        width: 700px
+    }
+}
+
+@media (min-width:768px) {
+    select.form-control {
+        margin-left: 12px;
+        margin-right: 12px
+    }
+}
+
+
+/*!
+*
+* IPython auth
+*
+*/
+
+.center-nav {
+    display: inline-block;
+    margin-bottom: -4px
+}
+
+
+/*!
+*
+* IPython tree view
+*
+*/
+
+.alternate_upload {
+    background-color: none;
+    display: inline
+}
+
+.alternate_upload.form {
+    padding: 0;
+    margin: 0
+}
+
+.alternate_upload input.fileinput {
+    display: inline;
+    opacity: 0;
+    z-index: 2;
+    width: 12ex;
+    margin-right: -12ex
+}
+
+.alternate_upload .btn-upload {
+    height: 22px
+}
+
+ul#tabs {
+    margin-bottom: 4px
+}
+
+ul#tabs a {
+    padding-top: 6px;
+    padding-bottom: 4px
+}
+
+ul.breadcrumb a:focus,
+ul.breadcrumb a:hover {
+    text-decoration: none
+}
+
+ul.breadcrumb i.icon-home {
+    font-size: 16px;
+    margin-right: 4px
+}
+
+ul.breadcrumb span {
+    color: #5e5e5e
+}
+
+.list_toolbar {
+    padding: 4px 0 4px 0;
+    vertical-align: middle
+}
+
+.list_toolbar .tree-buttons {
+    padding-top: 1px
+}
+
+.dynamic-buttons {
+    padding-top: 3px;
+    display: inline-block
+}
+
+.list_toolbar [class*="span"] {
+    min-height: 24px
+}
+
+.list_header {
+    font-weight: bold;
+    background-color: #eee
+}
+
+.list_placeholder {
+    font-weight: bold;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+    padding-right: 7px
+}
+
+.list_container {
+    margin-top: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px
+}
+
+.list_container>div {
+    border-bottom: 1px solid #ddd
+}
+
+.list_container>div:hover .list-item {
+    background-color: red
+}
+
+.list_container>div:last-child {
+    border: none
+}
+
+.list_item:hover .list_item {
+    background-color: #ddd
+}
+
+.list_item a {
+    text-decoration: none
+}
+
+.list_item:hover {
+    background-color: #fafafa
+}
+
+.action_col {
+    text-align: right
+}
+
+.list_header>div,
+.list_item>div {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    line-height: 22px
+}
+
+.list_header>div input,
+.list_item>div input {
+    margin-right: 7px;
+    margin-left: 14px;
+    vertical-align: baseline;
+    line-height: 22px;
+    position: relative;
+    top: -1px
+}
+
+.list_header>div .item_link,
+.list_item>div .item_link {
+    margin-left: -1px;
+    vertical-align: baseline;
+    line-height: 22px
+}
+
+.new-file input[type=checkbox] {
+    visibility: hidden
+}
+
+.item_name {
+    line-height: 22px;
+    height: 24px
+}
+
+.item_icon {
+    font-size: 14px;
+    color: #5e5e5e;
+    margin-right: 7px;
+    margin-left: 7px;
+    line-height: 22px;
+    vertical-align: baseline
+}
+
+.item_buttons {
+    line-height: 1em;
+    margin-left: -5px
+}
+
+.item_buttons .btn-group,
+.item_buttons .input-group {
+    float: left
+}
+
+.item_buttons>.btn,
+.item_buttons>.btn-group,
+.item_buttons>.input-group {
+    margin-left: 5px
+}
+
+.item_buttons .btn {
+    min-width: 13ex
+}
+
+.item_buttons .running-indicator {
+    padding-top: 4px;
+    color: #5cb85c
+}
+
+.toolbar_info {
+    height: 24px;
+    line-height: 24px
+}
+
+input.nbname_input,
+input.engine_num_input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    height: 22px;
+    line-height: 14px;
+    margin: 0
+}
+
+input.engine_num_input {
+    width: 60px
+}
+
+.highlight_text {
+    color: blue
+}
+
+#project_name {
+    display: inline-block;
+    padding-left: 7px;
+    margin-left: -2px
+}
+
+#project_name>.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    font-weight: bold
+}
+
+#tree-selector {
+    padding-right: 0
+}
+
+#button-select-all {
+    min-width: 50px
+}
+
+#select-all {
+    margin-left: 7px;
+    margin-right: 2px
+}
+
+.menu_icon {
+    margin-right: 2px
+}
+
+.tab-content .row {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.folder_icon:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f114"
+}
+
+.folder_icon:before.pull-left {
+    margin-right: .3em
+}
+
+.folder_icon:before.pull-right {
+    margin-left: .3em
+}
+
+.notebook_icon:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f02d";
+    position: relative;
+    top: -1px
+}
+
+.notebook_icon:before.pull-left {
+    margin-right: .3em
+}
+
+.notebook_icon:before.pull-right {
+    margin-left: .3em
+}
+
+.running_notebook_icon:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f02d";
+    position: relative;
+    top: -1px;
+    color: #5cb85c
+}
+
+.running_notebook_icon:before.pull-left {
+    margin-right: .3em
+}
+
+.running_notebook_icon:before.pull-right {
+    margin-left: .3em
+}
+
+.file_icon:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f016";
+    position: relative;
+    top: -2px
+}
+
+.file_icon:before.pull-left {
+    margin-right: .3em
+}
+
+.file_icon:before.pull-right {
+    margin-left: .3em
+}
+
+#notebook_toolbar .pull-right {
+    padding-top: 0;
+    margin-right: -1px
+}
+
+ul#new-menu {
+    left: auto;
+    right: 0
+}
+
+.kernel-menu-icon {
+    padding-right: 12px;
+    width: 24px;
+    content: "\f096"
+}
+
+.kernel-menu-icon:before {
+    content: "\f096"
+}
+
+.kernel-menu-icon-current:before {
+    content: "\f00c"
+}
+
+#tab_content {
+    padding-top: 20px
+}
+
+#running .panel-group .panel {
+    margin-top: 3px;
+    margin-bottom: 1em
+}
+
+#running .panel-group .panel .panel-heading {
+    background-color: #eee;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    line-height: 22px
+}
+
+#running .panel-group .panel .panel-heading a:focus,
+#running .panel-group .panel .panel-heading a:hover {
+    text-decoration: none
+}
+
+#running .panel-group .panel .panel-body {
+    padding: 0
+}
+
+#running .panel-group .panel .panel-body .list_container {
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0
+}
+
+#running .panel-group .panel .panel-body .list_container .list_item {
+    border-bottom: 1px solid #ddd
+}
+
+#running .panel-group .panel .panel-body .list_container .list_item:last-child {
+    border-bottom: 0
+}
+
+.delete-button {
+    display: none
+}
+
+.duplicate-button {
+    display: none
+}
+
+.rename-button {
+    display: none
+}
+
+.shutdown-button {
+    display: none
+}
+
+.dynamic-instructions {
+    display: inline-block;
+    padding-top: 4px
+}
+
+
+/*!
+*
+* IPython text editor webapp
+*
+*/
+
+.selected-keymap i.fa {
+    padding: 0 5px
+}
+
+.selected-keymap i.fa:before {
+    content: "\f00c"
+}
+
+#mode-menu {
+    overflow: auto;
+    max-height: 20em
+}
+
+.edit_app #header {
+    -webkit-box-shadow: 0 0 12px 1px rgba(87, 87, 87, 0.2);
+    box-shadow: 0 0 12px 1px rgba(87, 87, 87, 0.2)
+}
+
+.edit_app #menubar .navbar {
+    margin-bottom: -1px
+}
+
+.dirty-indicator {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    width: 20px
+}
+
+.dirty-indicator.pull-left {
+    margin-right: .3em
+}
+
+.dirty-indicator.pull-right {
+    margin-left: .3em
+}
+
+.dirty-indicator-dirty {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    width: 20px
+}
+
+.dirty-indicator-dirty.pull-left {
+    margin-right: .3em
+}
+
+.dirty-indicator-dirty.pull-right {
+    margin-left: .3em
+}
+
+.dirty-indicator-clean {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    width: 20px
+}
+
+.dirty-indicator-clean.pull-left {
+    margin-right: .3em
+}
+
+.dirty-indicator-clean.pull-right {
+    margin-left: .3em
+}
+
+.dirty-indicator-clean:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f00c"
+}
+
+.dirty-indicator-clean:before.pull-left {
+    margin-right: .3em
+}
+
+.dirty-indicator-clean:before.pull-right {
+    margin-left: .3em
+}
+
+#filename {
+    font-size: 16pt;
+    display: table;
+    padding: 0 5px
+}
+
+#current-mode {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+#texteditor-backdrop {
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+@media not print {
+    #texteditor-backdrop {
+        background-color: #eee
+    }
+}
+
+@media print {
+    #texteditor-backdrop #texteditor-container .CodeMirror-gutter,
+    #texteditor-backdrop #texteditor-container .CodeMirror-gutters {
+        background-color: #fff
+    }
+}
+
+@media not print {
+    #texteditor-backdrop #texteditor-container .CodeMirror-gutter,
+    #texteditor-backdrop #texteditor-container .CodeMirror-gutters {
+        background-color: #fff
+    }
+}
+
+@media not print {
+    #texteditor-backdrop #texteditor-container {
+        padding: 0;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 12px 1px rgba(87, 87, 87, 0.2);
+        box-shadow: 0 0 12px 1px rgba(87, 87, 87, 0.2)
+    }
+}
